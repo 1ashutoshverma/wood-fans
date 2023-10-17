@@ -1,0 +1,72 @@
+#navbar_container {
+  /* border: 1px solid red; */
+  position: fixed;
+  width: 100%;
+  background-color: white;
+}
+#navbar_container::before {
+  position: absolute;
+  content: "";
+  /* left: 0px; */
+  /* right: 0px; */
+  height: 70px;
+  width: 100%;
+  background-color: #f8f8f8;
+  z-index: -1;
+}
+
+.navbar_bigscreen {
+  /* border: 1px solid rgb(0, 255, 34); */
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  padding: 10px 0px;
+}
+
+.logo_navbar {
+  width: 10%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo_navbar > img {
+  width: 50%;
+}
+
+.search_icon {
+  display: flex;
+  border: 1px solid rgb(199, 195, 195);
+  padding: 8px;
+  border-radius: 5px;
+}
+.search_icon > img {
+  width: 25px;
+}
+.search_icon > input {
+  border: none;
+  outline: none;
+  background-color: #f8f8f8;
+}
+.navbar_content_container {
+  /* border: 1px solid black; */
+  width: 90%;
+}
+.navbar_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+}
+.navbar_top > div:first-child {
+  display: flex;
+  gap: 25px;
+}
+.navbar_top div:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 30%;
+  /* border: 1px solid red; */
+}
