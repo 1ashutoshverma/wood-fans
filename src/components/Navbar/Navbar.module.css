@@ -1,5 +1,4 @@
 #navbar_container {
-  /* border: 1px solid red; */
   position: fixed;
   width: 100%;
   background-color: white;
@@ -7,33 +6,78 @@
 #navbar_container::before {
   position: absolute;
   content: "";
-  /* left: 0px; */
-  /* right: 0px; */
-  height: 70px;
+  height: 65px;
   width: 100%;
   background-color: #f8f8f8;
+  /* background-color: #726262; */
   z-index: -1;
 }
 
+/* ------------- Navbar for Big Screen Starts Here -------------- */
 .navbar_bigscreen {
   /* border: 1px solid rgb(0, 255, 34); */
   max-width: 1280px;
   margin: auto;
   display: flex;
-  padding: 10px 0px;
+  padding: 0px 15px;
+  justify-content: space-between;
 }
 
 .logo_navbar {
-  width: 10%;
   /* border: 1px solid red; */
+  width: 10%;
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .logo_navbar > img {
-  width: 50%;
+  width: 62px;
+}
+.navbar_content_container {
+  /* border: 1px solid black; */
+  padding-right: 10px;
+  padding-top: 10px;
+  width: 85%;
+}
+/* ----- Navbar Top Starts Here ----- */
+.navbar_top {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar_top > div:first-child {
+  display: flex;
+  /* border: 1px solid red; */
+  width: 70%;
+  /* gap: 4%; */
+}
+.navbar_top div > p {
+  /* border: 1px solid red; */
+  text-wrap: nowrap;
+  font-size: 0.9rem;
+  color: #7c7e7e;
+  margin-right: 4%;
 }
 
+.navbar_top div:last-child {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 30%;
+}
+.search_icon > input {
+  border: none;
+  outline: none;
+  width: 80%;
+  background-color: #f8f8f8;
+}
+.search_icon > input::placeholder {
+  color: #aab1b1;
+}
 .search_icon {
   display: flex;
   border: 1px solid rgb(199, 195, 195);
@@ -41,32 +85,103 @@
   border-radius: 5px;
 }
 .search_icon > img {
-  width: 25px;
+  width: 22px;
 }
-.search_icon > input {
-  border: none;
-  outline: none;
-  background-color: #f8f8f8;
+.navbar_cart {
+  width: 20px;
 }
-.navbar_content_container {
-  /* border: 1px solid black; */
-  width: 90%;
-}
-.navbar_top {
+/* ----- Navbar Top Ends Here ----- */
+
+/* ----- Navbar Bottom Starts Here ------ */
+.navbar_bottom {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+}
+.navbar_bottom > div:first-child {
   /* border: 1px solid red; */
-}
-.navbar_top > div:first-child {
   display: flex;
-  gap: 25px;
-}
-.navbar_top div:last-child {
-  display: flex;
-  justify-content: center;
+  gap: 6%;
+  width: 70%;
   align-items: center;
-  gap: 20px;
-  width: 30%;
+  font-size: 0.9rem;
+}
+.navbar_bottom > div:nth-child(2) div {
+  margin-top: 10px;
+}
+.navbar_bottom > div:nth-child(2) p {
   /* border: 1px solid red; */
+  margin: 5px;
+  color: #7c7e7e;
+}
+/* ------------- Navbar for Big Screen Ends Here -------------- */
+
+/* ------------- Navbar for Small Screen Starts Here */
+.navbar_smallscreen {
+  /* border: 1px solid rgb(0, 255, 34); */
+  margin: auto;
+  display: flex;
+  padding: 0px 15px;
+}
+.logo_mobile {
+  width: 20%;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+.logo_mobile img {
+  width: 35px;
+}
+.navbar_mobile {
+  /* border: 1px solid red; */
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  align-items: center;
+  /* margin-top: -40px; */
+}
+.navbar_humburger {
+  width: 30px;
+}
+@media screen and (width<1000px) {
+  .navbar_top div > p {
+    font-size: 0.8rem;
+  }
+  .logo_navbar > img {
+    width: 52px;
+  }
+  #navbar_container::before {
+    height: 60px;
+  }
+  .search_icon > img {
+    width: 15px;
+  }
+  .navbar_cart {
+    width: 20px;
+  }
+  .navbar_bottom {
+    padding-top: 8px;
+    font-size: 0.8rem;
+  }
+  .search_icon > input::placeholder {
+    font-size: 0.7rem;
+  }
+  .navbar_bottom > div:first-child {
+    font-size: 0.8rem;
+    text-wrap: nowrap;
+  }
+}
+@media screen and (width>850px) {
+  .navbar_smallscreen {
+    display: none;
+  }
+}
+@media screen and (width<850px) {
+  .navbar_bigscreen {
+    display: none;
+  }
+  #navbar_container::before {
+    position: absolute;
+    content: "";
+    height: 75px;
+  }
 }
