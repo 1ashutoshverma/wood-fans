@@ -4,7 +4,7 @@
     display: grid;
     justify-content: space-between;
     align-items: left;
-    background-color: rgba(166, 147, 147, 0);;
+    background-color: bisque;
     color: #fff;
     padding: 10px 20px;
 }
@@ -18,61 +18,91 @@
     height: auto;
 }
 
-.footer-links {
-    display: grid;
-
+.footer_links{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2rem;
 }
 
-.footer-links a {
+.footer_links_div{
+width: 150px;
+margin:1rem ;
+display: flex;
+justify-content: flex-start;
+flex-direction: column;
+color: cadetblue;
+}
 
-    color: #fff;
+a{
+    color: rgb(175 , 175 , 179);
     text-decoration: none;
-    margin-right: 20px;
 }
 
-.footer-right {
-    flex: 1;
-    text-align: right;
+.footer_links_div h4{
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 0.1rem;
+
+   
+}
+.footer_links_div p{
+   font-size: 12px;
+   line-height: 15px; 
+   margin: 0.5rem 0;
+   cursor: pointer;
+   margin-top: 5px;
+
 }
 
-.footer-mobile-buttons button {
-    background-color: #FF5733;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    margin-right: 10px;
-    border-radius: 5px;
+.footer_below{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between ;
+    margin-top:0.2rem ;
 }
 
-/* Media query for responsiveness  */
- @media (max-width: 768px) {
-    .footer {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: center;
-    }
+hr{
 
-    .footer-links {
-        margin-top: 10px;
-        gap: 20px;
-    }
+    color: #fff !important;
+    width: 100%;
 
-    .footer-right {
-        text-align: left;
-        margin-top: 10px;
-    }
+}
+.footer-copyright{
+    font-size: 13px;
+    line-height: 15px;
+    color: rgb(66, 62, 62);
+    font-weight: 600;
 }
 
+@media screen and (max-width : 550px){
+.footer_links div{
+    margin: 1rem 0;
 
-
-/* @media (min-width: 768px) {
-    .footer-links {
-        display: flex;
-    }
-
-    .footer-links a {
-        margin-right: 20px;
-        /* Add spacing between the links 
-        
-        */
+}
+.footer_below{
+    flex-direction: column;
+    justify-content: left;
+}
     
+
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media query for responsiveness  

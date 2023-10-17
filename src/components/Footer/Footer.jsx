@@ -5,50 +5,93 @@ import './Footer.css'
 const footer = () => {
   return (
      <footer className="footer">
-      <div className="footer-left">
+      {/* <div className="footer-left">
         <img src="logo.png" alt="Logo" />
-      </div>
-      <div className="footer-links">
-        <a href='#'>Individual project</a>
-        <a href="#">Payment</a>
-        <a href="#">Portfolio</a>
-        <a href="#">Dubai</a>
-        <a href="#">Site Map</a>
+      </div> */}
+      <div className='footer_links'>
+        <div className='footer_links_div'>
+          <img src="https://woodfans.ru/" alt="Logo" />
+          <p>WOOD FANS</p>
+        </div>
 
-      </div>
+        <div className='footer_links_div'>
+          <a href='#'>
+            <p>Individual project</p>
+          </a>
+           <a href='#'>
+            <p>Payment</p>
+          </a>
+           <a href='#'>
+            <p>Portfolio</p>
+          </a>
+           <a href='#'>
+            <p>Dubai</p>
+          </a>
+           <a href='#'>
+            <p>Site Map</p>
+          </a>
+        </div>
 
-       <div className="footer-links">
-        <a href="#">Delivery</a>
-        <a href="#">Blog</a>
-        <a href="#">About Us</a>
-        <a href="#">Contacts</a>
-      </div>
-      
-      <div className="footer-links">
-        <a href="#">Upholstered furniture to order</a>
-        <a href="#">Custom sofas</a>
+
+        <div className='footer_links_div'>
+          <a href='#'>
+            <p>Delivery</p>
+          </a>
+           <a href='#'>
+            <p>Blog</p>
+          </a>
+           <a href='#'>
+            <p>About Us</p>
+          </a>
+           <a href='#'>
+            <p>Contacts</p>
+          </a>
+          
+        </div>
+        
+        
+        <div className='footer_links_div'>
+          <a href='#'>
+            <p>Upholstered furniture to order</p>
+          </a>
+           <a href='#'>
+            <p>Custom sofas</p>
+          </a>
+        
+        </div>
+            <div className='footer_links_div'>
+          <a href='#'>
+           <h4>+7 (926) 787-11-00</h4>
+          </a>
+           <a href='#'>
+            <h4>+7 (495) 147-97-77</h4>
+         
+          </a>
+           <a href='#'>
+            <p>Modern furniture factory</p>
+          </a>
+        
+        </div>
+
+
+
+        <hr></hr>
+
+        <div className='footer_below'>
+          <div className='footer-copyright'>
+          <p>Moscow © 2007–2023 "WOOD FANS®" - furniture production. All rights reserved.</p>
+
+          </div>
+
+
+        </div>
         
       </div>
 
 
-      <div className="footer-right">
-        <div className="footer-contact-info">
-          <div>
-            <a href="tel:+79267871100">+7 (926) 787-11-00</a>
-          </div>
-          <div>
-            <a href="tel:+74951479777">+7 (495) 147-97-77</a>
-          </div>
-        </div>
-      </div>
+    
     </footer>
   )
 }
 
 export default footer
-
-
-
-{/* 
-        <a href="#">Upholstered furniture to order</a>
-        <a href="#">Custom sofas</a> */}

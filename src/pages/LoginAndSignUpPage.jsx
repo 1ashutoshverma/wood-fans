@@ -5,7 +5,7 @@ const LoginAndSignUpPage = () => {
     return (
         <div>LoginAndSignUpPage
       
-          
+          {/* <Footer/> */}
         </div>
     )
 }
