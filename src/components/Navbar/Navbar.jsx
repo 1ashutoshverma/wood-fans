@@ -3,6 +3,7 @@ import logo from "./NavbarImages/Logo.svg"
 import cart from "./NavbarImages/Cart.svg"
 import search from "./NavbarImages/SearchIcon.svg"
 import burger from "./NavbarImages/BurgerMenu.svg"
+import cross from "./NavbarImages/Cross.svg"
 import style from "./Navbar.module.css"
 // import MenuIcon from '@mui/icons-material/Menu';
 const Navbar = () => {
@@ -57,9 +58,39 @@ const Navbar = () => {
                     <p><b>Login</b></p>
                     <img src={cart} className={style.navbar_cart} />
                     {/* {MenuIcon} */}
-                    <img src={burger} className={style.navbar_humburger} />
+                    <img src={clickedHumburger ? cross : burger} className={style.navbar_humburger} onClick={() => { setClickedHumburger(!clickedHumburger) }} />
                 </div>
             </div>
+            {
+                clickedHumburger ? (<div className={style.main_dropdown}>
+                    <div className={style.mobile_dropdown}>
+                        <div>
+                            <p>SOFAS</p>
+                            <p>BED</p>
+                            <p>CHILDREN'S FURNITURE</p>
+                            <p>ARMCHAIRS AND POUFS</p>
+                        </div>
+                        <div>
+                            <div>
+                                <p>Individual project</p>
+                                <p>Payment</p>
+                                <p>Portfolio</p>
+                                <p>Dubai</p>
+                            </div>
+                            <div>
+                                <p>Delivery</p>
+                                <p>Blog</p>
+                                <p>About us</p>
+                                <p>Contact</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h1>+7 (926) 787-11-00</h1>
+                            <p>Modern Furniture Factory</p>
+                        </div>
+                    </div>
+                </div>) : (<></>)
+            }
         </div>
     )
 }
