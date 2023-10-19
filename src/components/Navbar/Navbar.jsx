@@ -5,6 +5,7 @@ import search from "./NavbarImages/SearchIcon.svg"
 import burger from "./NavbarImages/BurgerMenu.svg"
 import cross from "./NavbarImages/Cross.svg"
 import style from "./Navbar.module.css"
+import { Link } from 'react-router-dom'
 // import MenuIcon from '@mui/icons-material/Menu';
 const Navbar = () => {
     const [clickedHumburger, setClickedHumburger] = useState(false)
@@ -16,28 +17,28 @@ const Navbar = () => {
                 <div className={style.navbar_content_container}>
                     <div className={style.navbar_top}>
                         <div>
-                            <p>Individual projects</p>
-                            <p>Delivery</p>
-                            <p>Payment</p>
-                            <p>Blog</p>
-                            <p>Portfolio</p>
-                            <p>About us</p>
+                            <p><Link to={"#"} className={style.link}>Indivisual project</Link></p>
+                            <p><Link to={"#"} className={style.link}>Delivery</Link></p>
+                            <p><Link to={"#"} className={style.link}>Payment</Link></p>
+                            <p><Link to={"#"} className={style.link}>Blog</Link></p>
+                            <p><Link to={"#"} className={style.link}>Portfolio</Link></p>
+                            <p><Link to={"#"} className={style.link}>About us</Link></p>
                         </div>
                         <div>
                             <div className={style.search_icon}>
                                 <input type="text" placeholder='Search Items...' />
                                 <img src={search} alt="" />
                             </div>
-                            <p><b>Login</b></p>
-                            <img src={cart} className={style.navbar_cart} />
+                            <p><Link to={"#"} className={style.link}><b>Login</b></Link></p>
+                            <Link><img src={cart} className={style.navbar_cart} /></Link>
                         </div>
                     </div>
                     <div className={style.navbar_bottom}>
                         <div>
-                            <p>SOFAS</p>
-                            <p>BED</p>
-                            <p>CHILDREN'S FURNITURE</p>
-                            <p>ARMCHAIRS AND POUFS</p>
+                            <p><Link to={"#"} className={style.link}>SOFAS</Link></p>
+                            <p><Link to={"#"} className={style.link}>BED</Link></p>
+                            <p><Link to={"#"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
+                            <p><Link to={"#"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
                             <div><b>+7 (926) 787-11-00</b></div>

@@ -53,12 +53,18 @@
   width: 70%;
   /* gap: 4%; */
 }
+
 .navbar_top div > p {
   /* border: 1px solid red; */
   text-wrap: nowrap;
   font-size: 0.9rem;
   color: #7c7e7e;
   margin-right: 4%;
+  text-decoration: none;
+}
+.navbar_top div > p .link {
+  text-decoration: none;
+  color: #7c7e7e;
 }
 
 .navbar_top div:last-child {
@@ -117,6 +123,11 @@
   /* border: 1px solid red; */
   margin: 5px;
   color: #7c7e7e;
+}
+.navbar_bottom > div:first-child p .link {
+  /* border: 1px solid red; */
+  text-decoration: none;
+  color: #656666;
 }
 /* ------------- Navbar for Big Screen Ends Here -------------- */
 
@@ -227,7 +238,7 @@
   .navbar_smallscreen {
     display: none;
   }
-  .mobile_dropdown {
+  .main_dropdown {
     display: none;
   }
 }
