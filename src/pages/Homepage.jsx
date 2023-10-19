@@ -1,12 +1,14 @@
 import React from 'react'
-import TopSection from '../components/HomePage/TopSection'
+import Carousel from '../components/HomePage/Carousel'
+import Section1 from '../components/HomePage/Section1'
 
 
 const Homepage = () => {
     return (
-        <div>Homepage
+        <div>
+            <Carousel />
+            <Section1 />
             <div style={{ height: "500px", border: "1px solid red" }} ></div>
-            <TopSection />
             <div style={{ height: "500px", border: "1px solid red" }} ></div>
             <div style={{ height: "500px", border: "1px solid red" }} ></div>
         </div>

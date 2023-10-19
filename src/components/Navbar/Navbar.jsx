@@ -6,7 +6,7 @@ import burger from "./NavbarImages/BurgerMenu.svg"
 import cross from "./NavbarImages/Cross.svg"
 import style from "./Navbar.module.css"
 import { Link } from 'react-router-dom'
-// import MenuIcon from '@mui/icons-material/Menu';
+
 const Navbar = () => {
     const [clickedHumburger, setClickedHumburger] = useState(false)
     return (
