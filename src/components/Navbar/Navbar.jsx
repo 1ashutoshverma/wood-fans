@@ -41,8 +41,8 @@ const Navbar = () => {
                             <p><Link to={"#"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
-                            <div><b>+7 (926) 787-11-00</b></div>
-                            <p>Modern Furniture factory</p>
+                            <div><b style={{ fontSize: "0.9rem" }}>+7 (926) 787-11-00</b></div>
+                            <p style={{ fontSize: "0.9rem" }}>Modern Furniture factory</p>
                         </div>
 
                     </div >

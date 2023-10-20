@@ -80,12 +80,13 @@
 @media screen and (width<800px) {
   .PhotogallaryMain h1 {
     font-size: 1.6rem;
-    padding-left: 12px;
+    padding-left: 3px;
   }
   .Photogallary {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    padding-left: 12px;
+    margin-right: -9px;
+    padding-left: 3px;
   }
 }
 @media screen and (width<600px) {

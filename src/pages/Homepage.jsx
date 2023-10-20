@@ -3,6 +3,7 @@ import Carousel from '../components/HomePage/Carousel'
 import Section1 from '../components/HomePage/Section1'
 import Section2 from '../components/HomePage/Section2'
 import Photogallary from '../components/HomePage/Photogallary'
+import Team from '../components/HomePage/Team'
 
 
 const Homepage = () => {
@@ -12,7 +13,8 @@ const Homepage = () => {
             <Section1 />
             <Section2 />
             <Photogallary />
-            <div style={{ height: "500px", border: "1px solid red" }} ></div>
+            <Team />
+            {/* <div style={{ height: "500px", border: "1px solid red" }} ></div> */}
         </div>
 
     )
