@@ -1,17 +1,14 @@
 
-import React from 'react'
 import './Footer.css'
 
 const footer = () => {
   return (
      <footer className="footer">
-      {/* <div className="footer-left">
-        <img src="logo.png" alt="Logo" />
-      </div> */}
+     
       <div className='footer_links'>
         <div className='footer_links_div'>
-          <img src="https://woodfans.ru/" alt="Logo" />
-          <p>WOOD FANS</p>
+          <img src="https://woodfans.ru/logo-dark.svg" alt="Logo" />
+         
         </div>
 
         <div className='footer_links_div'>
@@ -31,8 +28,6 @@ const footer = () => {
             <p>Site Map</p>
           </a>
         </div>
-
-
         <div className='footer_links_div'>
           <a href='#'>
             <p>Delivery</p>

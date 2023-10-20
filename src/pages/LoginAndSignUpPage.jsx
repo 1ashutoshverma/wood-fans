@@ -1,13 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react';
 // import Footer from '../components/Footer/Footer';
+import Signup from '../components/Login/Signup';
+import Login from '../components/Login/Login';
+import '../components/Login/Login.css';
 
 const LoginAndSignUpPage = () => {
-    return (
-        <div>LoginAndSignUpPage
-      
-          {/* <Footer/> */}
-        </div>
-    )
-}
+  const [isLoginSelected, setIsLoginSelected] = useState(false);
 
-export default LoginAndSignUpPage
+  const handleToggleForm = () => {
+    setIsLoginSelected(!isLoginSelected);
+  };
+
+  return (
+
+    <div className='main-container'>
+      {/* <div className='image-container'>
+        <img src='https://api.woodfans.ru/storage/uploads/images/X1nlKgODlDigtd42ANZH64N0sqxb8ArcMGe8w8WP_widened_540.webp' alt='image'/> */}
+
+      {/* </div> */}
+
+         <div className='handlesignupandlogin'>
+      {isLoginSelected ? (
+        <Login />
+      ) : (
+        <Signup />
+      )}
+
+      <button className='toggle' onClick={handleToggleForm}>
+        {isLoginSelected ? "Don't have an account? Sign Up" : "Already have an account? Log In"}
+      </button>
+
+      {/* <Footer /> */}
+    </div>
+
+
+    </div>
+ 
+  );
+};
+
+export default LoginAndSignUpPage;

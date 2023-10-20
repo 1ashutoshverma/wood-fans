@@ -4,7 +4,7 @@
     display: grid;
     justify-content: space-between;
     align-items: left;
-    background-color: bisque;
+    background-color: rgb(249, 248, 241);
     color: #fff;
     padding: 10px 20px;
 }
@@ -49,6 +49,9 @@ a{
     margin-bottom: 0.1rem;
 
    
+}
+.footer_links_div img{
+    width: 60px;
 }
 .footer_links_div p{
    font-size: 12px;
