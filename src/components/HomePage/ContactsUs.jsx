@@ -6,10 +6,10 @@ const ContactsUs = () => {
             <div className={style.contactUs}>
                 <h1>Contact Us</h1>
                 <div>
-                    <p>Our team of experienced designers and craftsmen will be happy to create unique furniture for you that reflects your style and preferences.</p>
+                    <p className={style.paragraph}>Our team of experienced designers and craftsmen will be happy to create unique furniture for you that reflects your style and preferences.</p>
                     <div className={style.contactName}>
                         <input type="text" placeholder='What is your name?' />
-                        <input type="text" placeholder='+7(___)___-__-__' />
+                        <input type="text" placeholder='+7 (_ _ _)_ _ _-_ _-_ _' />
                     </div>
                     <div className={style.contactMsg}>
                         <input type="text" placeholder='Enter your message' />

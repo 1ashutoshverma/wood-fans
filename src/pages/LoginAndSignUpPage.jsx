@@ -19,23 +19,23 @@ const LoginAndSignUpPage = () => {
 
       {/* </div> */}
 
-         <div className='handlesignupandlogin'>
-      {isLoginSelected ? (
-        <Login />
-      ) : (
-        <Signup />
-      )}
+      <div className='handlesignupandlogin'>
+        {isLoginSelected ? (
+          <Signup />
+        ) : (
+          <Login />
+        )}
 
-      <button className='toggle' onClick={handleToggleForm}>
-        {isLoginSelected ? "Don't have an account? Sign Up" : "Already have an account? Log In"}
-      </button>
+        <button className='toggle' onClick={handleToggleForm}>
+          {isLoginSelected ? "Don't have an account? Sign Up" : "Already have an account? Log In"}
+        </button>
 
-      {/* <Footer /> */}
+        {/* <Footer /> */}
+      </div>
+
+
     </div>
 
-
-    </div>
- 
   );
 };
 

@@ -29,7 +29,7 @@ const Navbar = () => {
                                 <input type="text" placeholder='Search Items...' />
                                 <img src={search} alt="" />
                             </div>
-                            <p><Link to={"#"} className={style.link}><b>Login</b></Link></p>
+                            <p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>
                             <Link><img src={cart} className={style.navbar_cart} /></Link>
                         </div>
                     </div>

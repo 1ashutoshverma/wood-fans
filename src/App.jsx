@@ -1,5 +1,6 @@
 import './App.css'
 import AllRoutes from './Routes/AllRoutes'
+import Footer from './components/Footer/Footer'
 
 import Navbar from './components/Navbar/Navbar.jsx'
 
@@ -11,7 +12,7 @@ function App() {
     <>
       <Navbar />
       <AllRoutes />
-    
+      <Footer />
     </>
   )
 }

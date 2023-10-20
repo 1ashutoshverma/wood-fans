@@ -2,6 +2,7 @@
   max-width: 1280px;
   margin: auto;
   padding: 15px;
+  padding-top: 30px;
 }
 .contactUsMain h1 {
   font-weight: 500;
@@ -47,7 +48,10 @@
 .contactSend p {
   color: rgb(151, 149, 149);
 }
-
+.paragraph {
+  padding: 5px;
+  padding-left: 0;
+}
 @media screen and (width<800px) {
   .contactUsMain h1 {
     font-size: 1.6rem;
@@ -61,14 +65,17 @@
 }
 @media screen and (width<450px) {
   .contactUsMain h1 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   .contactUsMain p {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
   .contactName {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
+  }
+  .contactUs input::placeholder {
+    font-size: 0.6rem;
   }
 }

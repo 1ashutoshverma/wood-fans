@@ -1,12 +1,14 @@
 /* Footer.css */
 
 .footer {
-    display: grid;
+    /* display: grid; */
     justify-content: space-between;
     align-items: left;
-    background-color: rgb(249, 248, 241);
+    /* background-color: rgb(249, 248, 241); */
+    background-color: #F8F8F8;
     color: #fff;
     padding: 10px 20px;
+
 }
 
 .footer-left {
@@ -19,6 +21,10 @@
 }
 
 .footer_links{
+    /* border: 1px solid red; */
+    max-width: 1280px;
+    margin: auto;
+
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -26,7 +32,8 @@
     flex-wrap: wrap;
     width: 100%;
     text-align: left;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
+    
 }
 
 .footer_links_div{
