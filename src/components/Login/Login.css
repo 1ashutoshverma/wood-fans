@@ -1,0 +1,156 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a background color and style the body */
+body {
+    background: #ccc;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Main container for content */
+.main-container {
+    display: flex;
+        justify-content: space-between;
+        background: #ccc;
+        width: 100%;
+        max-width: 1200px;
+      
+        padding: 20px;
+        margin: auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        margin-top: 20px;
+}
+
+/* Container for signup and login forms */
+.handlesignupandlogin {
+width: 100%;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    background: none;
+    border-radius: 5px;
+ 
+}
+
+/* Toggle button */
+.toggle {
+    color:blue;
+    background: transparent;
+    margin-top: auto;
+}
+
+/* Style headers */
+h1,
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style form elements */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.input-group img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Style form elements */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3b4555;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Error message */
+.error {
+    color: #ff0000;
+}
+
+/* Style for the Google Login button */
+.google-button {
+    background-color: #4285F4;
+    /* Google Blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover effect for Google button */
+.google-button:hover {
+    background-color: #357AE8;
+    /* Slightly darker blue */
+}
+
+/* Style for the Facebook Login button */
+.facebook-button {
+    background-color: #1877F2;
+    /* Facebook Blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover effect for Facebook button */
+.facebook-button:hover {
+    background-color: #1665D8;
+    /* Slightly darker blue */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .handlesignupandlogin {
+        padding: 10px;
+    }
+}
