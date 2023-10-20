@@ -83,8 +83,6 @@ const Footer = () => {
 
       </div>
 
-
-
     </footer>
   )
 }

@@ -7,35 +7,30 @@ import '../components/Login/Login.css';
 const LoginAndSignUpPage = () => {
   const [isLoginSelected, setIsLoginSelected] = useState(false);
 
-  const handleToggleForm = () => {
-    setIsLoginSelected(!isLoginSelected);
-  };
+  // const handleToggleForm = () => {
+  //   setIsLoginSelected(!isLoginSelected);
+  // };
 
   return (
 
-    <div className='main-container'>
-      {/* <div className='image-container'>
+    <div className='loginPageWrapper'>
+      <div className='main-container'>
+        {/* <div className='image-container'>
         <img src='https://api.woodfans.ru/storage/uploads/images/X1nlKgODlDigtd42ANZH64N0sqxb8ArcMGe8w8WP_widened_540.webp' alt='image'/> */}
-
-      {/* </div> */}
-
-      <div className='handlesignupandlogin'>
-        {isLoginSelected ? (
-          <Signup />
-        ) : (
-          <Login />
-        )}
-
-        <button className='toggle' onClick={handleToggleForm}>
-          {isLoginSelected ? "Don't have an account? Sign Up" : "Already have an account? Log In"}
-        </button>
-
-        {/* <Footer /> */}
+        {/* </div> */}
+        <div className='handlesignupandlogin'>
+          {isLoginSelected ? (
+            <Signup isLoginSelected={isLoginSelected} setIsLoginSelected={setIsLoginSelected} />
+          ) : (
+            <Login isLoginSelected={isLoginSelected} setIsLoginSelected={setIsLoginSelected} />
+          )}
+          {/* <button className='toggle' onClick={handleToggleForm}>
+            {isLoginSelected ? "Don't have an account? Sign Up" : "Already have an account? Log In"}
+          </button> */}
+          {/* <Footer /> */}
+        </div>
       </div>
-
-
     </div>
-
   );
 };
 

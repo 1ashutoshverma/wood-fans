@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import userIcon from './Assets/person.png';
 import emailIcon from './Assets/Email.png';
 import passwordIcon from './Assets/password.png';
+import google from "./Assets/google.jpg"
+import facebook from "./Assets/facebook.png"
 // import { GoogleLogin } from 'react-google-login';
 
 
 
-const Signup = () => {
+const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -55,54 +57,71 @@ const Signup = () => {
     console.log(response);
   };
 
+  const handleToggleForm = () => {
+    setIsLoginSelected(!isLoginSelected);
+  };
+
   return (
-   <div>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <div className="input-group">
-            <img src={userIcon} alt="User" />
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+
+    <div className='loginPage'>
+      <div className='backgroundImage'>
+
+        <form onSubmit={handleSubmit} id='signupForm'>
+          <h2>Signup</h2>
+          <div>
+            <div className="input-group">
+              <img src={userIcon} alt="User" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
           </div>
-        </div>
-        <div>
-          <div className="input-group">
-            <img src={emailIcon} alt="Email" />
-            <input
-              type="text"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+          <div>
+            <div className="input-group">
+              <img src={emailIcon} alt="Email" />
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
           </div>
-        </div>
-        <div>
-          <div className="input-group">
-            <img src={passwordIcon} alt="Password" />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+          <div>
+            <div className="input-group">
+              <img src={passwordIcon} alt="Password" />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
           </div>
-        </div>
+          <input type="submit" className='LoginButton' value="Sign Up" />
+          <button className='toggle' onClick={handleToggleForm}>
+            {!isLoginSelected ? "Don't have an account? Sign Up" : "Already have an account? Log In"}
+          </button>
+          <div className='facebookAndGoogle'>
+            <div><img src={facebook} alt="" /></div>
+            <div><img src={google} alt="" /></div>
+          </div>
+        </form>
         <div>
-          <button type="submit">Sign Up</button>
+          {/* <img src={background} alt="" /> */}
+          <h2>Unlock a world! <br /> <span style={{ color: "brown" }}>of furniture</span> <br /> Designs</h2>
         </div>
-      </form>
-      {error && <p className="error">{error}</p>}
+        {error && <p className="error">{error}</p>}
+      </div>
     </div>
   );
 };
