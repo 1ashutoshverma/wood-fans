@@ -18,7 +18,7 @@ const Login = () => {
 
     // Retrieve the list of stored users from local storage
     const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-    
+
     // Check if the provided email and password match any stored user
     const user = existingUsers.find(
       (u) => u.email === formData.email && u.password === formData.password
@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className='loginPage'>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
