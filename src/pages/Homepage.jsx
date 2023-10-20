@@ -4,6 +4,7 @@ import Section1 from '../components/HomePage/Section1'
 import Section2 from '../components/HomePage/Section2'
 import Photogallary from '../components/HomePage/Photogallary'
 import Team from '../components/HomePage/Team'
+import ContactsUs from '../components/HomePage/ContactsUs'
 
 
 const Homepage = () => {
@@ -14,6 +15,7 @@ const Homepage = () => {
             <Section2 />
             <Photogallary />
             <Team />
+            <ContactsUs />
             {/* <div style={{ height: "500px", border: "1px solid red" }} ></div> */}
         </div>
 
