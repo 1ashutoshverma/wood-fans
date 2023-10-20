@@ -6,7 +6,7 @@
 } */
 
 /* Set a background color and style the body */
-.loginPage body {
+/* .loginPage body {
   background: #ccc;
   font-family: Arial, sans-serif;
   display: flex;
@@ -16,55 +16,79 @@
   margin: 0;
   padding: 0;
   min-height: 100vh;
+} */
+
+.backgroundImage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.backgroundImage > div:nth-child(2) {
+  padding: 15px;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-image: url(./Assets/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+.backgroundImage > div:nth-child(2) h2 {
+}
+.backgroundImage > div img {
+  width: 100%;
 }
 
 /* Main container for content */
 .main-container {
-  display: flex;
-  justify-content: space-between;
-  background: #ccc;
   width: 100%;
-  max-width: 1200px;
-
-  padding: 20px;
+  max-width: 1280px;
   margin: auto;
-  border-radius: 5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  /* margin-top: 20px; */
-  padding-top: 70px;
+  padding-top: 115px;
 }
 
 /* Container for signup and login forms */
 .handlesignupandlogin {
-  width: 100%;
-  margin: 10px;
   padding: 20px;
-  text-align: center;
-  background: none;
-  border-radius: 5px;
 }
 
 /* Toggle button */
 .toggle {
   color: blue;
-  background: transparent;
-  margin-top: auto;
+  padding: 15px;
+
+  /* background: transparent; */
+  /* margin-top: auto; */
 }
 
 /* Style headers */
 .loginPage h1,
 .loginPage h2 {
   color: #333;
+  padding-top: 0;
+  margin-top: 0;
   margin-bottom: 20px;
+  /* border: 1px solid red; */
+  font-size: 2.1rem;
 }
 
 /* Style form elements */
 .loginPage form {
   background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* border-radius: 5px; */
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
+  /* border: 1px solid red; */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.inputCheckbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .input-group {
@@ -85,16 +109,21 @@
 /* Style form elements */
 .loginPage input[type="text"],
 .loginPage input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-
-.loginPage button {
-  width: 100%;
+#signupForm input[type="text"],
+#signupForm input[type="password"] {
+  border: none;
+  outline: none;
+  width: 70%;
   padding: 10px;
+  background-color: none;
+}
+.LoginButton {
+  width: 100%;
+  padding: 15px;
   background-color: #3b4555;
   color: #fff;
   border: none;
@@ -142,8 +171,30 @@
   background-color: #1665d8;
   /* Slightly darker blue */
 }
-
+.facebookAndGoogle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px; */
+  gap: 20px;
+}
+.facebookAndGoogle img {
+  width: 100%;
+}
 /* Responsive styles */
+@media screen and (width<850px) {
+  .backgroundImage > div:nth-child(2) {
+    display: none;
+  }
+  .backgroundImage {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .backgroundImage {
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .main-container {
     flex-direction: column;

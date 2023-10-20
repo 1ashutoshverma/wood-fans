@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './Login.css';
+import background from "./Assets/background.jpg"
+import google from "./Assets/google.jpg"
+import facebook from "./Assets/facebook.png"
 
-const Login = () => {
+const Login = ({ isLoginSelected, setIsLoginSelected }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -34,11 +37,17 @@ const Login = () => {
     }
   };
 
+  const handleToggleForm = () => {
+    setIsLoginSelected(!isLoginSelected);
+  };
   return (
+
     <div className='loginPage'>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <div className='backgroundImage'>
+        <form onSubmit={handleSubmit} >
+          <h2>Login</h2>
+
+          <label>Email</label>
           <input
             type="text"
             name="email"
@@ -47,8 +56,9 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div>
+
+
+          <label>Password</label>
           <input
             type="password"
             name="password"
@@ -57,11 +67,24 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-        </div>
+          <div className='inputCheckbox'>
+            <p><input type="checkbox" /> <span>Rememeber me</span></p>
+            <p>Forgot Password?</p>
+          </div>
+          <input type="submit" className='LoginButton' value="Login" />
+          <button className='toggle' onClick={handleToggleForm}>
+            Don't have an account? Sign Up
+          </button>
+          <div className='facebookAndGoogle'>
+            <div><img src={facebook} alt="" /></div>
+            <div><img src={google} alt="" /></div>
+          </div>
+        </form>
         <div>
-          <button type="submit">Log In</button>
+          {/* <img src={background} alt="" /> */}
+          <h2>Furniture is meant<br /> <span style={{ color: "brown" }}>to be used</span> <br /> and enjoyed</h2>
         </div>
-      </form>
+      </div>
       {error && <p className="error">{error}</p>}
     </div>
   );
