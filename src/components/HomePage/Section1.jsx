@@ -5,6 +5,7 @@ import chair from "./CatalogueImages/chair.jpg"
 import child from "./CatalogueImages/child.jpg"
 import sofa from "./CatalogueImages/sofa.webp"
 import { Link } from 'react-router-dom'
+
 const Section1 = () => {
     return (
         <div className={style.Section1MainContainer}>
