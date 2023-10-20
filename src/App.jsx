@@ -1,12 +1,15 @@
-import { useState } from 'react'
 import './App.css'
-import Homepage from './pages/Homepage'
 import AllRoutes from './Routes/AllRoutes'
+
+import Navbar from './components/Navbar/Navbar.jsx'
+
 // import LoginAndSignUpPage from './pages/LoginAndSignUpPage'
+
 
 function App() {
   return (
     <>
+      <Navbar />
       <AllRoutes />
     
     </>
