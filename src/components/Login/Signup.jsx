@@ -7,7 +7,7 @@ import facebook from "./Assets/facebook.png"
 import { Navigate } from 'react-router';
 import { auth } from './firebase';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import {  createUserWithEmailAndPassword , updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { userLogin } from './redux/action';
 // import { firebase } from './firebase';
@@ -31,44 +31,31 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
     e.preventDefault();
 
     try {
-    const { email, password, name } = formData;
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const { email, password, name } = formData;
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-    const user = userCredential.user;
-    await updateProfile(user, {
-      displayName: name,
-    });
+      const user = userCredential.user;
+      await updateProfile(user, {
+        displayName: name,
+      });
       // console.log(user);
 
-<<<<<<< HEAD
-       const userLoginData = {
-      email: user.email,
-      name: name,
-    };
+      const userLoginData = {
+        email: user.email,
+        name: name,
+      };
       dispatch(userLogin(userLoginData));
       // console.log(userLoginData);
-=======
-      // Clear the form and reset the error
-      setFormData({
-        name: '',
-        email: '',
-        password: '',
-      });
-      // setError('User registered successfully!');
+
+
+      console.log('User registered successfully:', user);
       setRegister(true);
-      alert('User registered successfully!')
-
->>>>>>> d217bde40c98b037cc9d3731f235579bc1157a91
-
-
-    console.log('User registered successfully:', user);
-    setRegister(true);
-  } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.error('Registration error:', errorCode, errorMessage);
-    setError(errorMessage);
-  }
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error('Registration error:', errorCode, errorMessage);
+      setError(errorMessage);
+    }
   };
 
 
@@ -79,36 +66,20 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
 
 
   const handleGoogleSignIn = async () => {
-<<<<<<< HEAD
-  const provider = new GoogleAuthProvider();
-  try {
-    const result = await signInWithPopup(auth, provider);
-    
-    const user = result.user;
-
-     const userLoginData = {
-      email: user.email,
-      name: name,
-    };
-      dispatch(userLogin(userLoginData));
-      console.log(userLoginData);
-    console.log('Google Sign-In Success', user);
-
-    setRegister(true);
-  } catch (error) {
-   
-    console.error('Google Sign-In Error', error);
-    if (error.code === 'auth/popup-closed-by-user') {
-      alert('Google Sign-In Popup was closed by the user');
-    } else {
-      alert('An error occurred during Google Sign-In');
-=======
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
 
       const user = result.user;
+
+      const userLoginData = {
+        email: user.email,
+        name: name,
+      };
+      dispatch(userLogin(userLoginData));
+      console.log(userLoginData);
       console.log('Google Sign-In Success', user);
+
       setRegister(true);
     } catch (error) {
 
@@ -118,12 +89,8 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
       } else {
         alert('An error occurred during Google Sign-In');
       }
->>>>>>> d217bde40c98b037cc9d3731f235579bc1157a91
-    }
-  };
-
-
-
+    };
+  }
 
   if (register) {
     return <Navigate to={'/'} />
