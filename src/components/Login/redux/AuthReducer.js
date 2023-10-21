@@ -2,7 +2,7 @@ import React from "react";
 
 const intialState = {
   isAuth: false,
-  name: "",
+  name: "Dummy",
   email: "",
 };
 const AuthReducer = (state = intialState, { type, payload }) => {

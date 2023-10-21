@@ -1,11 +1,11 @@
 export const userLogin = (payload) => {
   return {
-    action: "login",
+    type: "login",
     payload: payload,
   };
 };
 export const userLogout = () => {
   return {
-    action: "logout",
+    type: "logout",
   };
 };

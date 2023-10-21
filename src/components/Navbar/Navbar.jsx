@@ -7,12 +7,16 @@ import cross from "./NavbarImages/Cross.svg"
 import human from "./NavbarImages/human-icon.svg"
 import style from "./Navbar.module.css"
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { userLogout } from '../Login/redux/action'
 
 const Navbar = () => {
     const [clickedHumburger, setClickedHumburger] = useState(false)
-    const [humanIcon, setHumanIcon] = useState(true)
     const [dropDownLogin, setDropDownLogin] = useState(false)
     const [dropDownSearch, setDropDownSearch] = useState(false)
+    const isAuth = useSelector((store) => store.AuthReducer.isAuth);
+    const userName = useSelector((store) => store.AuthReducer.name);
+    const dispatch = useDispatch()
     return (
         <div id={style.navbar_container}>
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
@@ -34,7 +38,7 @@ const Navbar = () => {
                                 <img src={search} alt="" />
                             </div>
                             {
-                                humanIcon ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} /></div>)
+                                isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} /></div>)
                             }
 
                             <Link><img src={cart} className={style.navbar_cart} /></Link>
@@ -69,9 +73,9 @@ const Navbar = () => {
                 <div>
                     {
                         dropDownLogin ? (<div className={style.navbarDropdownLogin}>
-                            <div>Ashutosh Verma</div>
+                            <div>{userName}</div>
                             <div>My Cart</div>
-                            <div>Logout</div>
+                            <div onClick={() => { dispatch(userLogout()) }}>Logout</div>
                         </div>) : (<></>)
                     }
                 </div>

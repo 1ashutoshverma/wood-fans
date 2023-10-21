@@ -55,7 +55,7 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
       // setError('User registered successfully!');
       setRegister(true);
       alert('User registered successfully!')
-         
+
 
     }
   };
@@ -68,29 +68,29 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
 
 
   const handleGoogleSignIn = async () => {
-  const provider = new GoogleAuthProvider();
-  try {
-    const result = await signInWithPopup(auth, provider);
-    
-    const user = result.user;
-    console.log('Google Sign-In Success', user);
-    setRegister(true);
-  } catch (error) {
-   
-    console.error('Google Sign-In Error', error);
-    if (error.code === 'auth/popup-closed-by-user') {
-      alert('Google Sign-In Popup was closed by the user');
-    } else {
-      alert('An error occurred during Google Sign-In');
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+
+      const user = result.user;
+      console.log('Google Sign-In Success', user);
+      setRegister(true);
+    } catch (error) {
+
+      console.error('Google Sign-In Error', error);
+      if (error.code === 'auth/popup-closed-by-user') {
+        alert('Google Sign-In Popup was closed by the user');
+      } else {
+        alert('An error occurred during Google Sign-In');
+      }
     }
-  }
-};
+  };
 
 
 
 
   if (register) {
-    return <Navigate to={'/'}/>
+    return <Navigate to={'/'} />
   }
 
   return (
@@ -148,7 +148,7 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
             <div><img src={google} onClick={handleGoogleSignIn} alt="" /></div>
           </div>
         </form>
-        <div>
+        <div className='signUpBackground'>
           {/* <img src={background} alt="" /> */}
           <h2>Unlock a world! <br /> <span style={{ color: "brown" }}>of furniture</span> <br /> Designs</h2>
         </div>
