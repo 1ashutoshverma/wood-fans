@@ -3,6 +3,10 @@ import './Login.css';
 import background from "./Assets/background.jpg"
 import google from "./Assets/google.jpg"
 import facebook from "./Assets/facebook.png"
+import { Navigate } from 'react-router';
+import { auth } from './firebase';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+// import { useHistory } from 'react-router-dom';
 
 const Login = ({ isLoginSelected, setIsLoginSelected }) => {
   const [formData, setFormData] = useState({
@@ -10,12 +14,16 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
     password: '',
   });
   const [error, setError] = useState(null);
+  const [register, setRegister] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // const history = useHistory();
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -30,8 +38,11 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
     if (user) {
       setError(null);
       console.log('User logged in successfully!');
+      setRegister(true);
       alert("Your are logged succesfuly")
+    
       // You can perform additional actions here, such as redirecting the user.
+      
     } else {
       setError('Invalid email or password');
     }
@@ -40,6 +51,30 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
   const handleToggleForm = () => {
     setIsLoginSelected(!isLoginSelected);
   };
+
+
+   const handleGoogleSignIn = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    const result = await signInWithPopup(auth, provider);
+    
+    const user = result.user;
+    console.log('Google Sign-In Success', user);
+    setRegister(true);
+  } catch (error) {
+   
+    console.error('Google Sign-In Error', error);
+    if (error.code === 'auth/popup-closed-by-user') {
+      alert('Google Sign-In Popup was closed by the user');
+    } else {
+      alert('An error occurred during Google Sign-In');
+    }
+  }
+};
+
+  if (register) {
+    return<Navigate to={'/'}/>
+  }
   return (
 
     <div className='loginPage'>
@@ -77,7 +112,7 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
           </button>
           <div className='facebookAndGoogle'>
             <div><img src={facebook} alt="" /></div>
-            <div><img src={google} alt="" /></div>
+            <div><img src={google} onClick={handleGoogleSignIn} alt="" /></div>
           </div>
         </form>
         <div>

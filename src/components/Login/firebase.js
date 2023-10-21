@@ -1,17 +1,16 @@
 
-// firebase.js
-import firebase from 'firebase/app';
-import 'firebase/auth';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth"; 
 
 const firebaseConfig = {
-  apiKey: 'your-api-key',
-  authDomain: 'your-auth-domain',
-  projectId: 'your-project-id',
-  storageBucket: 'your-storage-bucket',
-  messagingSenderId: 'your-messaging-sender-id',
-  appId: 'your-app-id',
+  apiKey: "AIzaSyBycyKOeU62OBVkVaNnH7ZvXwrc0BqK1yc",
+  authDomain: "woodfans-2ebc9.firebaseapp.com",
+  projectId: "woodfans-2ebc9",
+  storageBucket: "woodfans-2ebc9.appspot.com",
+  messagingSenderId: "401858827381",
+  appId: "1:401858827381:web:4302ed514568e16e26d43c"
 };
 
-const App = firebase.initializeApp(firebaseConfig);
-
-export const auth = firebase.auth(App);
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);

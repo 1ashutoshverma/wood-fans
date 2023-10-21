@@ -4,7 +4,11 @@ import emailIcon from './Assets/Email.png';
 import passwordIcon from './Assets/password.png';
 import google from "./Assets/google.jpg"
 import facebook from "./Assets/facebook.png"
-// import { GoogleLogin } from 'react-google-login';
+import { Navigate } from 'react-router';
+import { auth } from './firebase';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+// import { firebase } from './firebase';
+
 
 
 
@@ -15,6 +19,7 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
     password: '',
   });
   const [error, setError] = useState(null);
+  const [register, setRegister] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,18 +53,45 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
         password: '',
       });
       // setError('User registered successfully!');
+      setRegister(true);
       alert('User registered successfully!')
+         
 
     }
   };
-  const responseGoogle = (response) => {
-    // Handle Google login response here
-    console.log(response);
-  };
+
+
 
   const handleToggleForm = () => {
     setIsLoginSelected(!isLoginSelected);
   };
+
+
+  const handleGoogleSignIn = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    const result = await signInWithPopup(auth, provider);
+    
+    const user = result.user;
+    console.log('Google Sign-In Success', user);
+    setRegister(true);
+  } catch (error) {
+   
+    console.error('Google Sign-In Error', error);
+    if (error.code === 'auth/popup-closed-by-user') {
+      alert('Google Sign-In Popup was closed by the user');
+    } else {
+      alert('An error occurred during Google Sign-In');
+    }
+  }
+};
+
+
+
+
+  if (register) {
+    return <Navigate to={'/'}/>
+  }
 
   return (
 
@@ -113,7 +145,7 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
           </button>
           <div className='facebookAndGoogle'>
             <div><img src={facebook} alt="" /></div>
-            <div><img src={google} alt="" /></div>
+            <div><img src={google} onClick={handleGoogleSignIn} alt="" /></div>
           </div>
         </form>
         <div>

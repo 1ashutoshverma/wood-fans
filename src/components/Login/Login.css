@@ -152,6 +152,7 @@
 .google-button:hover {
   background-color: #357ae8;
   /* Slightly darker blue */
+  cursor: pointer;
 }
 
 /* Style for the Facebook Login button */
