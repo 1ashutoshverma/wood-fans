@@ -40,12 +40,25 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
     });
       // console.log(user);
 
+<<<<<<< HEAD
        const userLoginData = {
       email: user.email,
       name: name,
     };
       dispatch(userLogin(userLoginData));
       // console.log(userLoginData);
+=======
+      // Clear the form and reset the error
+      setFormData({
+        name: '',
+        email: '',
+        password: '',
+      });
+      // setError('User registered successfully!');
+      setRegister(true);
+      alert('User registered successfully!')
+
+>>>>>>> d217bde40c98b037cc9d3731f235579bc1157a91
 
 
     console.log('User registered successfully:', user);
@@ -66,6 +79,7 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
 
 
   const handleGoogleSignIn = async () => {
+<<<<<<< HEAD
   const provider = new GoogleAuthProvider();
   try {
     const result = await signInWithPopup(auth, provider);
@@ -88,15 +102,31 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
       alert('Google Sign-In Popup was closed by the user');
     } else {
       alert('An error occurred during Google Sign-In');
+=======
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+
+      const user = result.user;
+      console.log('Google Sign-In Success', user);
+      setRegister(true);
+    } catch (error) {
+
+      console.error('Google Sign-In Error', error);
+      if (error.code === 'auth/popup-closed-by-user') {
+        alert('Google Sign-In Popup was closed by the user');
+      } else {
+        alert('An error occurred during Google Sign-In');
+      }
+>>>>>>> d217bde40c98b037cc9d3731f235579bc1157a91
     }
-  }
-};
+  };
 
 
 
 
   if (register) {
-    return <Navigate to={'/'}/>
+    return <Navigate to={'/'} />
   }
 
   return (
@@ -154,7 +184,7 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
             <div><img src={google} onClick={handleGoogleSignIn} alt="" /></div>
           </div>
         </form>
-        <div>
+        <div className='signUpBackground'>
           {/* <img src={background} alt="" /> */}
           <h2>Unlock a world! <br /> <span style={{ color: "brown" }}>of furniture</span> <br /> Designs</h2>
         </div>
