@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const [clickedHumburger, setClickedHumburger] = useState(false)
-    const [humanIcon, setHumanIcon] = useState(false)
+    const [humanIcon, setHumanIcon] = useState(true)
     const [dropDownLogin, setDropDownLogin] = useState(false)
     const [dropDownSearch, setDropDownSearch] = useState(false)
     return (

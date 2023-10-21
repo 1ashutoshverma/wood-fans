@@ -6,6 +6,7 @@ import facebook from "./Assets/facebook.png"
 import { Navigate } from 'react-router';
 import { auth } from './firebase';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 
 const Login = ({ isLoginSelected, setIsLoginSelected }) => {
@@ -16,7 +17,8 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
   const [error, setError] = useState(null);
   const [register, setRegister] = useState(false);
 
-
+  const value = useSelector((store) => store)
+  console.log(value)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
