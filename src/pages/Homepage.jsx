@@ -5,9 +5,12 @@ import Section2 from '../components/HomePage/Section2'
 import Photogallary from '../components/HomePage/Photogallary'
 import Team from '../components/HomePage/Team'
 import ContactsUs from '../components/HomePage/ContactsUs'
+import { useSelector } from 'react-redux'
 
 
 const Homepage = () => {
+    const store = useSelector((store) => store)
+    console.log(store)
     return (
         <div>
             <Carousel />
