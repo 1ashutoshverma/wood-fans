@@ -4,11 +4,15 @@ import cart from "./NavbarImages/Cart.svg"
 import search from "./NavbarImages/SearchIcon.svg"
 import burger from "./NavbarImages/BurgerMenu.svg"
 import cross from "./NavbarImages/Cross.svg"
+import human from "./NavbarImages/human-icon.svg"
 import style from "./Navbar.module.css"
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const [clickedHumburger, setClickedHumburger] = useState(false)
+    const [humanIcon, setHumanIcon] = useState(false)
+    const [dropDownLogin, setDropDownLogin] = useState(false)
+    const [dropDownSearch, setDropDownSearch] = useState(false)
     return (
         <div id={style.navbar_container}>
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
@@ -26,10 +30,13 @@ const Navbar = () => {
                         </div>
                         <div>
                             <div className={style.search_icon}>
-                                <input type="text" placeholder='Search Items...' />
+                                <input type="text" placeholder='Search Items...' onClick={() => { setDropDownSearch(!dropDownSearch); setDropDownLogin(false) }} />
                                 <img src={search} alt="" />
                             </div>
-                            <p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>
+                            {
+                                humanIcon ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} /></div>)
+                            }
+
                             <Link><img src={cart} className={style.navbar_cart} /></Link>
                         </div>
                     </div>
@@ -46,6 +53,27 @@ const Navbar = () => {
                         </div>
 
                     </div >
+                </div>
+            </div>
+            <div className={style.navbarDropdown}>
+                <div>
+                    {
+                        dropDownSearch ? (<div className={style.navbarDropdownSearch}>
+                            <div>Ashutosh Verma</div>
+                            <div>My Cart</div>
+                            <div>Logout</div>
+                            <div>Logout</div>
+                        </div>) : (<></>)
+                    }
+                </div>
+                <div>
+                    {
+                        dropDownLogin ? (<div className={style.navbarDropdownLogin}>
+                            <div>Ashutosh Verma</div>
+                            <div>My Cart</div>
+                            <div>Logout</div>
+                        </div>) : (<></>)
+                    }
                 </div>
             </div>
             {/* ----------Navbar for Laptop Screen Ends Here ------------ */}

@@ -102,6 +102,67 @@
 .navbar_cart {
   width: 20px;
 }
+.humanIcon img {
+  width: 25px;
+}
+.humanIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.navbarDropdown {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 60px;
+}
+.navbarDropdown > div {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.navbarDropdownLogin {
+  /* border: 1px solid green; */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: column;
+  width: 12%;
+  margin-left: 88%;
+  background-color: white;
+  border-radius: 6px;
+  padding: 10px;
+  gap: 10px;
+  text-align: center;
+}
+.navbarDropdownLogin > div {
+  border-bottom: 1px solid rgb(226, 225, 225);
+  padding-bottom: 5px;
+  color: #8e8f8f;
+}
+.navbarDropdownLogin > div:hover {
+  color: #1b1b1b;
+  cursor: pointer;
+}
+.navbarDropdownSearch {
+  /* border: 1px solid green; */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: column;
+  width: 17.5%;
+  margin-left: 73.7%;
+  background-color: white;
+  border-radius: 6px;
+  padding: 10px 0;
+  gap: 10px;
+}
+.navbarDropdownSearch div {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.navbarDropdownSearch div:hover {
+  background-color: #e9e6e6;
+}
 /* ----- Navbar Top Ends Here ----- */
 
 /* ----- Navbar Bottom Starts Here ------ */
@@ -130,6 +191,7 @@
   text-decoration: none;
   color: #656666;
 }
+
 /* ------------- Navbar for Big Screen Ends Here -------------- */
 
 /* ------------- Navbar for Small Screen Starts Here */

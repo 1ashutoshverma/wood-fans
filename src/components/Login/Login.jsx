@@ -23,7 +23,7 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
   };
 
   // const history = useHistory();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -40,9 +40,9 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
       console.log('User logged in successfully!');
       setRegister(true);
       alert("Your are logged succesfuly")
-    
+
       // You can perform additional actions here, such as redirecting the user.
-      
+
     } else {
       setError('Invalid email or password');
     }
@@ -53,27 +53,26 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
   };
 
 
-   const handleGoogleSignIn = async () => {
-  const provider = new GoogleAuthProvider();
-  try {
-    const result = await signInWithPopup(auth, provider);
-    
-    const user = result.user;
-    console.log('Google Sign-In Success', user);
-    setRegister(true);
-  } catch (error) {
-   
-    console.error('Google Sign-In Error', error);
-    if (error.code === 'auth/popup-closed-by-user') {
-      alert('Google Sign-In Popup was closed by the user');
-    } else {
-      alert('An error occurred during Google Sign-In');
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log('Google Sign-In Success', user);
+      setRegister(true);
+    } catch (error) {
+
+      console.error('Google Sign-In Error', error);
+      if (error.code === 'auth/popup-closed-by-user') {
+        alert('Google Sign-In Popup was closed by the user');
+      } else {
+        alert('An error occurred during Google Sign-In');
+      }
     }
-  }
-};
+  };
 
   if (register) {
-    return<Navigate to={'/'}/>
+    return <Navigate to={'/'} />
   }
   return (
 
@@ -102,6 +101,7 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
             onChange={handleChange}
             required
           />
+          {error && <p className="error">{error}</p>}
           <div className='inputCheckbox'>
             <p><input type="checkbox" /> <span>Rememeber me</span></p>
             <p>Forgot Password?</p>
@@ -120,7 +120,7 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
           <h2>Furniture is meant<br /> <span style={{ color: "brown" }}>to be used</span> <br /> and enjoyed</h2>
         </div>
       </div>
-      {error && <p className="error">{error}</p>}
+
     </div>
   );
 };
