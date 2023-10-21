@@ -36,9 +36,25 @@ const Navbar = () => {
                             <div className={style.search_icon}>
                                 <input type="text" placeholder='Search Items...' onClick={() => { setDropDownSearch(!dropDownSearch); setDropDownLogin(false) }} />
                                 <img src={search} alt="" />
+                                {
+                                    dropDownSearch ? (<div className={style.searchDropdown}>
+                                        <div>Ashutosh Verma</div>
+                                        <div>My Cart</div>
+                                        <div>Logout</div>
+                                        <div>Logout</div>
+                                    </div>) : (<></>)
+                                }
                             </div>
                             {
-                                isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} /></div>)
+                                !isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} />
+                                    {
+                                        dropDownLogin ? (<div className={style.logindropdown}>
+                                            <div>{userName}</div>
+                                            <div>My Cart</div>
+                                            <div onClick={() => { dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
+                                        </div>) : (<></>)
+                                    }
+                                </div>)
                             }
 
                             <Link><img src={cart} className={style.navbar_cart} /></Link>
@@ -59,36 +75,33 @@ const Navbar = () => {
                     </div >
                 </div>
             </div>
-            <div className={style.navbarDropdown}>
-                <div>
-                    {
-                        dropDownSearch ? (<div className={style.navbarDropdownSearch}>
-                            <div>Ashutosh Verma</div>
-                            <div>My Cart</div>
-                            <div>Logout</div>
-                            <div>Logout</div>
-                        </div>) : (<></>)
-                    }
-                </div>
-                <div>
-                    {
-                        dropDownLogin ? (<div className={style.navbarDropdownLogin}>
-                            <div>{userName}</div>
-                            <div>My Cart</div>
-                            <div onClick={() => { dispatch(userLogout()) }}>Logout</div>
-                        </div>) : (<></>)
-                    }
-                </div>
-            </div>
             {/* ----------Navbar for Laptop Screen Ends Here ------------ */}
             <div className={style.navbar_smallscreen}>
                 <div className={style.logo_mobile}><img src={logo} alt="Logo" /></div>
                 <div className={style.navbar_mobile}>
                     <div className={style.search_icon}>
-                        <input type="text" placeholder='Search Items...' />
+                        <input type="text" placeholder='Search Items...' onClick={() => { setDropDownSearch(!dropDownSearch); setDropDownLogin(false) }} />
                         <img src={search} alt="" />
+                        {
+                            dropDownSearch ? (<div className={style.searchDropdown}>
+                                <div>Ashutosh Verma</div>
+                                <div>My Cart</div>
+                                <div>Logout</div>
+                                <div>Logout</div>
+                            </div>) : (<></>)
+                        }
                     </div>
-                    <p><b>Login</b></p>
+                    {
+                        !isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin) }} />
+                            {
+                                dropDownLogin ? (<div className={style.logindropdown}>
+                                    <div>{userName}</div>
+                                    <div>My Cart</div>
+                                    <div onClick={() => { dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
+                                </div>) : (<></>)
+                            }
+                        </div>)
+                    }
                     <img src={cart} className={style.navbar_cart} />
                     {/* {MenuIcon} */}
                     <img src={clickedHumburger ? cross : burger} className={style.navbar_humburger} onClick={() => { setClickedHumburger(!clickedHumburger) }} />

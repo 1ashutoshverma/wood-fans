@@ -74,12 +74,11 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
 
       const userLoginData = {
         email: user.email,
-        name: name,
+        name: user.displayName,
       };
       dispatch(userLogin(userLoginData));
-      console.log(userLoginData);
-      console.log('Google Sign-In Success', user);
-
+      // console.log(userLoginData);
+      // console.log('Google Sign-In Success', user);
       setRegister(true);
     } catch (error) {
 
