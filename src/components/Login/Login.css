@@ -33,8 +33,7 @@
   background-size: cover;
   border-radius: 10px;
 }
-.backgroundImage > div:nth-child(2) h2 {
-}
+
 .backgroundImage > div img {
   width: 100%;
 }
@@ -181,6 +180,7 @@
 }
 .facebookAndGoogle img {
   width: 100%;
+  cursor: pointer;
 }
 /* Responsive styles */
 @media screen and (width<850px) {
