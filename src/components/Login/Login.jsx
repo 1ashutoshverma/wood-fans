@@ -5,8 +5,9 @@ import google from "./Assets/google.jpg"
 import facebook from "./Assets/facebook.png"
 import { Navigate } from 'react-router';
 import { auth } from './firebase';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useSelector } from 'react-redux';
+import { getAuth, GoogleAuthProvider, signInWithPopup  , signInWithEmailAndPassword } from 'firebase/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { userLogin } from './redux/action';
 // import { useHistory } from 'react-router-dom';
 
 const Login = ({ isLoginSelected, setIsLoginSelected }) => {
@@ -16,6 +17,7 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
   });
   const [error, setError] = useState(null);
   const [register, setRegister] = useState(false);
+  const dispatch = useDispatch();
 
   const value = useSelector((store) => store)
   console.log(value)
@@ -28,26 +30,27 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+     const { email, password } = formData;
     // Retrieve the list of stored users from local storage
-    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in
+          const user = userCredential.user;
 
-    // Check if the provided email and password match any stored user
-    const user = existingUsers.find(
-      (u) => u.email === formData.email && u.password === formData.password
-    );
-
-    if (user) {
-      setError(null);
-      console.log('User logged in successfully!');
-      setRegister(true);
-      alert("Your are logged succesfuly")
-
-      // You can perform additional actions here, such as redirecting the user.
-
-    } else {
-      setError('Invalid email or password');
-    }
+           const userLoginData = {
+      email: user.email,
+      name: user.displayName,
+    };
+      dispatch(userLogin(userLoginData));
+          console.log(user);
+          console.log("logged succesfully")
+          setRegister(true)
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage)
+        });
   };
 
   const handleToggleForm = () => {
@@ -60,7 +63,13 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+
       console.log('Google Sign-In Success', user);
+      const userLoginData = {
+      email: user.email,
+      name: user.displayName,
+    };
+      dispatch(userLogin(userLoginData));
       setRegister(true);
     } catch (error) {
 

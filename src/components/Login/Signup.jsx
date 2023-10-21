@@ -7,10 +7,10 @@ import facebook from "./Assets/facebook.png"
 import { Navigate } from 'react-router';
 import { auth } from './firebase';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {  createUserWithEmailAndPassword , updateProfile } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { userLogin } from './redux/action';
 // import { firebase } from './firebase';
-
-
-
 
 const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
   const [formData, setFormData] = useState({
@@ -20,44 +20,42 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
   });
   const [error, setError] = useState(null);
   const [register, setRegister] = useState(false);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the user already exists in local storage
-    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-    const userExists = existingUsers.find(user => user.email === formData.email);
+    try {
+    const { email, password, name } = formData;
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-    if (userExists) {
-      setError('User already exists');
-      alert("User already exists");
-    } else {
-      // Store the new user in local storage
-      const newUser = {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      };
-      existingUsers.push(newUser);
-      localStorage.setItem('users', JSON.stringify(existingUsers));
+    const user = userCredential.user;
+    await updateProfile(user, {
+      displayName: name,
+    });
+      // console.log(user);
 
-      // Clear the form and reset the error
-      setFormData({
-        name: '',
-        email: '',
-        password: '',
-      });
-      // setError('User registered successfully!');
-      setRegister(true);
-      alert('User registered successfully!')
-         
+       const userLoginData = {
+      email: user.email,
+      name: name,
+    };
+      dispatch(userLogin(userLoginData));
+      // console.log(userLoginData);
 
-    }
+
+    console.log('User registered successfully:', user);
+    setRegister(true);
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error('Registration error:', errorCode, errorMessage);
+    setError(errorMessage);
+  }
   };
 
 
@@ -73,7 +71,15 @@ const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
     const result = await signInWithPopup(auth, provider);
     
     const user = result.user;
+
+     const userLoginData = {
+      email: user.email,
+      name: name,
+    };
+      dispatch(userLogin(userLoginData));
+      console.log(userLoginData);
     console.log('Google Sign-In Success', user);
+
     setRegister(true);
   } catch (error) {
    
