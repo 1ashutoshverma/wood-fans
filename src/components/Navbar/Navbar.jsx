@@ -57,12 +57,12 @@ const Navbar = () => {
                                 </div>)
                             }
 
-                            <Link><img src={cart} className={style.navbar_cart} /></Link>
+                            <Link to="/cart"><img src={cart} className={style.navbar_cart} /></Link>
                         </div>
                     </div>
                     <div className={style.navbar_bottom}>
                         <div>
-                            <p><Link to={"#"} className={style.link}>SOFAS</Link></p>
+                            <p><Link to={"/product"} className={style.link}>SOFAS</Link></p>
                             <p><Link to={"#"} className={style.link}>BED</Link></p>
                             <p><Link to={"#"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
                             <p><Link to={"#"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
