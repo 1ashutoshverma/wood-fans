@@ -5,7 +5,7 @@ import google from "./Assets/google.jpg"
 import facebook from "./Assets/facebook.png"
 import { Navigate } from 'react-router';
 import { auth } from './firebase';
-import { getAuth, GoogleAuthProvider, signInWithPopup  , signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogin } from './redux/action';
 // import { useHistory } from 'react-router-dom';
@@ -30,27 +30,27 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     const { email, password } = formData;
+    const { email, password } = formData;
     // Retrieve the list of stored users from local storage
     signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in
-          const user = userCredential.user;
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
 
-           const userLoginData = {
-      email: user.email,
-      name: user.displayName,
-    };
-      dispatch(userLogin(userLoginData));
-          console.log(user);
-          console.log("logged succesfully")
-          setRegister(true)
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage)
-        });
+        const userLoginData = {
+          email: user.email,
+          name: user.displayName,
+        };
+        dispatch(userLogin(userLoginData));
+        console.log(user);
+        console.log("logged succesfully")
+        setRegister(true)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage)
+      });
   };
 
   const handleToggleForm = () => {
@@ -66,9 +66,9 @@ const Login = ({ isLoginSelected, setIsLoginSelected }) => {
 
       console.log('Google Sign-In Success', user);
       const userLoginData = {
-      email: user.email,
-      name: user.displayName,
-    };
+        email: user.email,
+        name: user.displayName,
+      };
       dispatch(userLogin(userLoginData));
       setRegister(true);
     } catch (error) {

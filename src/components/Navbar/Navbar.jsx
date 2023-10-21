@@ -38,7 +38,7 @@ const Navbar = () => {
                                 <img src={search} alt="" />
                             </div>
                             {
-                                isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} /></div>)
+                                !isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} /></div>)
                             }
 
                             <Link><img src={cart} className={style.navbar_cart} /></Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
                         dropDownLogin ? (<div className={style.navbarDropdownLogin}>
                             <div>{userName}</div>
                             <div>My Cart</div>
-                            <div onClick={() => { dispatch(userLogout()) }}>Logout</div>
+                            <div onClick={() => { dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
                         </div>) : (<></>)
                     }
                 </div>
