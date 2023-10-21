@@ -2,7 +2,9 @@
   /* border: 1px solid red; */
   padding-top: 50px;
 }
-
+.Section1MainContainer a {
+  color: rgb(133, 132, 132);
+}
 .Section1Container {
   /* border: 1px solid red; */
   max-width: 1280px;
@@ -43,13 +45,14 @@
 }
 .secondDivImg {
   position: relative;
-  z-index: -1;
+  z-index: 5;
   padding-right: 15px;
 }
 .OnPicture {
   position: absolute;
   left: 5%;
   top: 3%;
+  z-index: 50;
 }
 .OnPicture h1 {
   font-size: 3rem;
