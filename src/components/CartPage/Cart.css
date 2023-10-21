@@ -1,7 +1,9 @@
 #cartContainer {
   background-color: rgba(128, 128, 128, 0.236);
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
+  padding-top: 140px;
+  padding-bottom: 90px;
 }
 
 #Container {

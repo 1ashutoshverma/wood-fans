@@ -9,7 +9,8 @@
   background-position: center center;
   background-repeat: no-repeat;
   height: 100vh;
-  backdrop-filter: blur(5px);
+  padding-top: 100px;
+  /* backdrop-filter: blur(5px); */
 }
 .custom-form {
   width: 300px;
@@ -23,14 +24,14 @@
   margin-bottom: 20px;
 }
 
-label {
+.form-container label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-input,
-textarea {
+.form-container input,
+.form-container textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
