@@ -1,0 +1,63 @@
+#cartContainer {
+  background-color: rgba(128, 128, 128, 0.236);
+  display: flex;
+  height: 100vh;
+}
+
+#Container {
+  max-width: 1280px;
+  width: 70%;
+  margin-left: auto;
+}
+
+#address {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+#address > h3 {
+  padding: 0px 30px;
+}
+#CardElement {
+  margin-top: 12px;
+  width: 100%;
+}
+
+#ProductDetail {
+  position: sticky;
+}
+
+.emptyCardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.emptyBox {
+  text-align: center;
+}
+
+.emptyImage {
+  max-width: 100%;
+  height: auto;
+}
+
+.emptyBtnContainer {
+  margin-top: 20px;
+}
+
+.emptyBtn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.emptyBtn:hover {
+  background-color: #0056b3;
+}

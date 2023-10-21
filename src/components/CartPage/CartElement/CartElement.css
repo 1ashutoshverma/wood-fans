@@ -1,0 +1,82 @@
+#cartElementContainer {
+  margin-top: 10px;
+  background-color: white;
+  display: flex;
+  gap: 25px;
+  padding: 15px 15px 0 15px;
+}
+
+#elementPrice {
+  display: flex;
+  gap: 10px;
+}
+
+.beforePrice {
+  text-decoration: line-through;
+  font-size: 15px;
+  color: #888;
+}
+
+.productName {
+  margin-bottom: 10px;
+}
+
+.productDetails {
+  color: #888;
+  font-size: 14px;
+  margin-top: 0px;
+}
+
+.sellerName {
+  color: #888;
+  font-size: 14px;
+}
+
+.discount {
+  color: green;
+  font-size: 15px;
+}
+
+#quantityContainer {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-left: 2.7%;
+}
+
+.decrement,
+.increment {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: rgba(165, 164, 164, 0.105);
+  color: black;
+  border: 1px solid rgba(128, 128, 128, 0.396);
+}
+
+.quantity {
+  padding: 0 10px;
+  font-size: 1.2rem;
+}
+
+#removeBtn {
+  display: flex;
+  gap: 30px;
+}
+
+#removeBtn > button {
+  border: none;
+  font-size: 17px;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+}

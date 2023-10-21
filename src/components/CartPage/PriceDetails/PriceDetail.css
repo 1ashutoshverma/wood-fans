@@ -1,0 +1,65 @@
+#priceContainer {
+  padding: 10px;
+  padding-bottom: 0;
+  position: sticky;
+}
+.priceDetail {
+  color: #888;
+  text-align: left;
+  width: 320px;
+}
+
+#mainContainer {
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 60px;
+}
+
+.priceTags {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceTags > p,
+.priceTags > h4 {
+  color: #3b3b3bd8;
+}
+
+#deliveryCharges {
+  color: #888;
+  margin-right: 5px;
+  text-decoration: line-through;
+  font-size: 15px;
+}
+
+#deliveryFree {
+  color: green;
+}
+
+.dotted-line {
+  border: 0;
+  border-top: 1px dashed #999;
+}
+
+.totalAmount {
+  padding: 0 12px 12px 12px;
+}
+
+.checkOutBtn {
+  padding: 15px 130px;
+  background-color: #fb641b;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.checkOutContainer {
+  padding: 10px 10px 10px 10px;
+}
+
+.checkoutLink {
+  text-decoration: none;
+  color: white;
+}
