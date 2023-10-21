@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import logo from "./NavbarImages/Logo.svg"
 import cart from "./NavbarImages/Cart.svg"
 import search from "./NavbarImages/SearchIcon.svg"
@@ -9,7 +9,7 @@ import style from "./Navbar.module.css"
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogout } from '../Login/redux/action'
-
+import SearchData from './SearchData'
 const Navbar = () => {
     const [clickedHumburger, setClickedHumburger] = useState(false)
     const [dropDownLogin, setDropDownLogin] = useState(false)
@@ -17,11 +17,31 @@ const Navbar = () => {
     const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     const userName = useSelector((store) => store.AuthReducer.name);
     const dispatch = useDispatch()
+    const [searchResults, setsearchResults] = useState("");
+    const debounce = useRef();
+    const [searchedData, setSearchedData] = useState([])
+
+    useEffect(() => {
+        clearTimeout(debounce.current);
+        debounce.current = setTimeout(() => {
+            const data = SearchData(searchResults)
+            // console.log(data)
+            let arr = []
+            for (let i = 1; i <= data.length; i++) {
+                if (i <= 3) {
+                    arr.push(data[i - 1])
+                }
+            }
+            setSearchedData(arr)
+        }, 500);
+    }, [searchResults])
+
     return (
-        <div id={style.navbar_container}>
+        <div id={style.navbar_container} >
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
             <div className={style.navbar_bigscreen}>
-                <div className={style.logo_navbar}><img src={logo} alt="Logo" /></div>
+
+                <div className={style.logo_navbar}><Link to={"/"}><img src={logo} alt="Logo" /></Link></div>
                 <div className={style.navbar_content_container}>
                     <div className={style.navbar_top}>
                         <div>
@@ -34,14 +54,17 @@ const Navbar = () => {
                         </div>
                         <div>
                             <div className={style.search_icon}>
-                                <input type="text" placeholder='Search Items...' onClick={() => { setDropDownSearch(!dropDownSearch); setDropDownLogin(false) }} />
+                                <input type="text" placeholder='Search Items...' value={searchResults} onChange={(e) => setsearchResults(e.target.value)} />
                                 <img src={search} alt="" />
                                 {
-                                    dropDownSearch ? (<div className={style.searchDropdown}>
-                                        <div>Ashutosh Verma</div>
-                                        <div>My Cart</div>
-                                        <div>Logout</div>
-                                        <div>Logout</div>
+                                    searchResults.length > 0 ? (<div className={style.searchDropdown}>
+                                        {
+                                            searchedData.length ? (searchedData.map((e) => {
+                                                return (
+                                                    <div key={e.id}>{e.title}</div>
+                                                )
+                                            })) : (<div>No Results...</div>)
+                                        }
                                     </div>) : (<></>)
                                 }
                             </div>
@@ -77,17 +100,20 @@ const Navbar = () => {
             </div>
             {/* ----------Navbar for Laptop Screen Ends Here ------------ */}
             <div className={style.navbar_smallscreen}>
-                <div className={style.logo_mobile}><img src={logo} alt="Logo" /></div>
+                <div className={style.logo_mobile}><Link to={"/"}><img src={logo} alt="Logo" /></Link></div>
                 <div className={style.navbar_mobile}>
                     <div className={style.search_icon}>
-                        <input type="text" placeholder='Search Items...' onClick={() => { setDropDownSearch(!dropDownSearch); setDropDownLogin(false) }} />
+                        <input type="text" placeholder='Search Items...' value={searchResults} onChange={(e) => setsearchResults(e.target.value)} />
                         <img src={search} alt="" />
                         {
-                            dropDownSearch ? (<div className={style.searchDropdown}>
-                                <div>Ashutosh Verma</div>
-                                <div>My Cart</div>
-                                <div>Logout</div>
-                                <div>Logout</div>
+                            searchResults.length > 0 ? (<div className={style.searchDropdown}>
+                                {
+                                    searchedData.length ? (searchedData.map((e) => {
+                                        return (
+                                            <div key={e.id}>{e.title}</div>
+                                        )
+                                    })) : (<div>No Results...</div>)
+                                }
                             </div>) : (<></>)
                         }
                     </div>
@@ -111,10 +137,10 @@ const Navbar = () => {
                 clickedHumburger ? (<div className={style.main_dropdown}>
                     <div className={style.mobile_dropdown}>
                         <div>
-                            <p>SOFAS</p>
-                            <p>BED</p>
-                            <p>CHILDREN'S FURNITURE</p>
-                            <p>ARMCHAIRS AND POUFS</p>
+                            <p><Link to={"/product"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>SOFAS</Link></p>
+                            <p><Link to={"#"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>BED</Link></p>
+                            <p><Link to={"#"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>CHILDREN'S FURNITURE</Link></p>
+                            <p><Link to={"#"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
                             <div>

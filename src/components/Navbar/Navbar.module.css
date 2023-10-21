@@ -23,7 +23,9 @@
   padding: 0px 15px;
   justify-content: space-between;
 }
-
+#navbar_container a {
+  color: #1b1b1b;
+}
 .logo_navbar {
   /* border: 1px solid red; */
   width: 10%;
@@ -33,7 +35,7 @@
   align-items: center;
   padding-bottom: 10px;
 }
-.logo_navbar > img {
+.logo_navbar img {
   width: 50px;
 }
 .navbar_content_container {
@@ -179,12 +181,12 @@
 .navbar_bottom > div:nth-child(2) p {
   /* border: 1px solid red; */
   margin: 5px;
-  color: #7c7e7e;
+  color: #3b3b3b;
 }
 .navbar_bottom > div:first-child p .link {
   /* border: 1px solid red; */
   text-decoration: none;
-  color: #656666;
+  color: #3f3f3f;
 }
 
 /* ------------- Navbar for Big Screen Ends Here -------------- */
