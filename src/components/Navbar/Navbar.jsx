@@ -6,7 +6,7 @@ import burger from "./NavbarImages/BurgerMenu.svg"
 import cross from "./NavbarImages/Cross.svg"
 import human from "./NavbarImages/human-icon.svg"
 import style from "./Navbar.module.css"
-
+import "./navbar.css"
 
 
 
@@ -61,7 +61,7 @@ const Navbar = () => {
 
 
     return (
-        <div className={style.navbar_container} >
+        <div id='navbar_container' >
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
             <div className={style.navbar_bigscreen}>
 
