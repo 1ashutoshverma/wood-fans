@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import style from "./BuyersChoice.module.css"
 import axios from 'axios'
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../CartPage/redux/action';
 
 const BuyersChoice = () => {
     const [type, setType] = useState("Sofas");
     const [data, setData] = useState([]);
-
+    const dispatch = useDispatch();
     const getData = async (type) => {
         try {
             const res = await axios(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${type}.json`)
@@ -53,7 +55,7 @@ const BuyersChoice = () => {
                                     <h3>{e.title}</h3>
                                     <div>
                                         <h4>{e.type}</h4>
-                                        <button>Buy Now</button>
+                                        <button onClick={() => { dispatch(addToCart([{ ...e, qty: 1 }])) }}>Buy Now</button>
                                     </div>
                                 </div>
                             )
