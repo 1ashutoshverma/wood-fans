@@ -9,7 +9,6 @@ import style from "./Navbar.module.css"
 import "./navbar.css"
 
 
-
 import { AddProductType } from '../ProductPage/ProductReducer/action'
 
 
@@ -25,7 +24,7 @@ const Navbar = () => {
     const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     const userName = useSelector((store) => store.AuthReducer.name);
     // const [insideOpen, setInsideOpen] = useState(false);
-
+    const prev = useRef()
 
     const handleProductType = (productType) => {
         AddProductType(dispatch, productType);
@@ -63,7 +62,7 @@ const Navbar = () => {
 
 
     return (
-        <div id='navbar_container' >
+        <div id='navbar_container' onClick={() => { setsearchResults(""); dropDownLogin ? setDropDownLogin(false) : <></> }}>
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
             <div className={style.navbar_bigscreen}>
 
@@ -80,7 +79,7 @@ const Navbar = () => {
                         </div>
                         <div>
                             <div className={style.search_icon}>
-                                <input type="text" placeholder='Search Items...' value={searchResults} onChange={(e) => setsearchResults(e.target.value)} />
+                                <input type="text" placeholder='Search Items...' value={prev.current} onChange={(e) => { prev.current = e.target.value; setsearchResults(e.target.value); }} />
                                 <img src={search} alt="" />
                                 {
                                     searchResults.length > 0 ? (<div className={style.searchDropdown}>
