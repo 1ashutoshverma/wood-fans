@@ -2,20 +2,36 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./productContainer.module.css"
+import { useDispatch, useSelector } from 'react-redux';
+import { AddToCart } from './ProductReducer/action';
+
+
 const ProductContainer = () => {
   const [data, setData] = useState([]);
-  const fetching = () => {
-    const res = axios.get("http://localhost:8080/sofas")
-      .then((res) => { setData(res.data) })
+  const dispatch=useDispatch();
 
+  const {productType}=useSelector((store)=>{return store.ProductReducer});
+  console.log(productType)
+
+  const fetching =async () => {
+    try {
+    const res = await axios.get(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${productType}.json`)
+    const jsonData=await (res.data);
+    console.log(jsonData)
+    setData(jsonData);
+    } catch (error) {
+      console.log(error)
+    }
   }
   const handleDetails = (ele) => {
-    console.log(ele)
+    AddToCart(dispatch,ele)
   }
-  useEffect(() => { fetching() }, [])
+  useEffect(() => {
+    fetching() }, [productType])
+
   return (
     <div className={styles.container}>
-      <h1>Sofas</h1>
+      <h1>{data.type}</h1>
       <div className={styles.singleCard}>
         {
           data.map((ele) => (<div key={ele.id}>
