@@ -4,30 +4,32 @@ import { Link } from "react-router-dom";
 import styles from "./productContainer.module.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { AddToCart } from './ProductReducer/action';
+import { addToCart } from '../CartPage/redux/action';
 
 
 const ProductContainer = () => {
   const [data, setData] = useState([]);
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
-  const {productType}=useSelector((store)=>{return store.ProductReducer});
+  const { productType } = useSelector((store) => { return store.ProductReducer });
   console.log(productType)
 
-  const fetching =async () => {
+  const fetching = async () => {
     try {
-    const res = await axios.get(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${productType}.json`)
-    const jsonData=await (res.data);
-    console.log(jsonData)
-    setData(jsonData);
+      const res = await axios.get(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${productType}.json`)
+      const jsonData = await (res.data);
+      console.log(jsonData)
+      setData(jsonData);
     } catch (error) {
       console.log(error)
     }
   }
   const handleDetails = (ele) => {
-    AddToCart(dispatch,ele)
+    AddToCart(dispatch, ele)
   }
   useEffect(() => {
-    fetching() }, [productType])
+    fetching()
+  }, [productType])
 
   return (
     <div className={styles.container}>
@@ -44,7 +46,7 @@ const ProductContainer = () => {
             <div className={styles.priceDiv}>
               <p style={{ "marginTop": "0em" }}>  <Link to={`productdetails/${ele.id}`}>More details</Link></p>
               <p> {ele.cost}</p>
-              <button onClick={() => { handleDetails(ele) }}>Add to Cart
+              <button onClick={() => { dispatch(addToCart([{ ...ele, qty: 1 }])) }}>Add to Cart
 
 
               </button>

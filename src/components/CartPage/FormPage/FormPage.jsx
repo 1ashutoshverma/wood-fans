@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./Formpage.css"; // Import the CSS for styling
 import PriceDetail from "../PriceDetails/PriceDetail";
+import useRazorpay from "react-razorpay";
+
+import logo from "../../Navbar/NavbarImages/logo.svg"
+import { useSelector } from "react-redux";
 
 function FormPage() {
   const [formData, setFormData] = useState({
@@ -8,6 +12,45 @@ function FormPage() {
     email: "",
     message: "",
   });
+  //=========================>>>>
+  const data = useSelector((store) => store.CartReducer)
+
+  let details = data.reduce((acc, e) => {
+    return { ...acc, qty: acc.qty + e.qty, total: acc.total + Number(e.price) * e.qty }
+  }, { qty: 0, total: 0 })
+  console.log(details)
+  const ammount = details.total - Math.round(details.total * 24 / 100);
+  //==========================>>>>
+  const [Razorpay, isLoaded] = useRazorpay();
+  const handlePayment = useCallback(() => {
+    const options = {
+      key: 'rzp_test_yswl3N40ETtM35', // Replace with your actual API Key
+      amount: ammount * 100,
+      currency: 'INR',
+      name: 'WOOD FANS',
+      description: 'Test Transaction',
+      image: logo,
+      // order_id: 1, // Pass the order ID obtained from createOrder
+      handler: (res) => {
+        console.log(res);
+      },
+      prefill: {
+        name: 'Ashutosh Verma',
+        email: 'youremail@example.com',
+        contact: '9999999999',
+      },
+      notes: {
+        address: 'Razorpay Corporate Office',
+      },
+      theme: {
+        color: '#3399cc',
+      },
+    };
+
+    const rzpay = new Razorpay(options);
+    rzpay.open();
+  }, [Razorpay]);
+  //==========================>>>>
 
   return (
     <div className="wrapperDivFormPage">
@@ -107,11 +150,12 @@ function FormPage() {
             </div>
 
             <div>
-              <PriceDetail />
+              <PriceDetail onclick={handlePayment} title={"Pay Now"} />
             </div>
           </div>
         </div>
       </div>
+      {/* <button onClick={handlePayment}>Click</button> */}
     </div>
   );
 }
