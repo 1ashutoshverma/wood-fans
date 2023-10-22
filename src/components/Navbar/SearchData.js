@@ -6,6 +6,8 @@ const data = {
       id: 1,
       title: "DAVE SOFA",
       type: "Sofas",
+      t: "Sofas",
+
       image:
         "https://api.woodfans.ru/storage/uploads/images/x9V57EeEsrvL9zWFSIUSK1766CK76PQ93XjrLDw1_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/CP65GN3NT3mxIemo9wXMFbJ19sPBXfhe0F9Ivr81_widened_900.jpg",
@@ -17,6 +19,7 @@ const data = {
       id: 2,
       title: "SOFA CITY",
       type: "Sofas",
+      t: "Sofas",
       image:
         "https://api.woodfans.ru/storage/uploads/images/2di18TNSAcHrzcfG68FtSqYgzYom9feqpLGnOcmx_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/gVS0pCrTnMZMA0CYRzSv4UiECh5I0TVE9W0fA2uR_widened_900.jpg",
@@ -28,6 +31,7 @@ const data = {
       id: 3,
       title: "SOFA LOOP",
       type: "Sofas",
+      t: "Sofas",
       image:
         "https://api.woodfans.ru/storage/uploads/images/fWdxHlcAF73HnM5AF0BmAqnCbynELvAKBEJtdGI0_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/CGtr1K3ZyPLsbFD0Vl5IKa6CO4exIoSuBWSYIoeS_cropped_1200_1200_widened_900.jpg",
@@ -39,6 +43,7 @@ const data = {
       id: 4,
       title: "SOFA JO",
       type: "Sofas",
+      t: "Sofas",
       image:
         "https://api.woodfans.ru/storage/uploads/images/cPdDkwV3Zi6PRhyWvP2JiHig2yArv3CdGO2AmNRw_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/LpUnnWk8oUyBEvX2O8d2d17kO74fXR8h0TqSJ8vu_cropped_897_897_widened_900.jpg",
@@ -50,6 +55,7 @@ const data = {
       id: 5,
       title: "SOFA TIM",
       type: "Sofas",
+      t: "Sofas",
       image:
         "https://api.woodfans.ru/storage/uploads/images/7vKOxusUHZfaFcvLrBbSuIMmYTRoVipUdZW4PvgQ_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/F5tcA1vkv6ylWgJL6vCpYcy3cmEnJsMXG4U5dLYk_widened_900.jpg",
@@ -61,6 +67,7 @@ const data = {
       id: 6,
       title: "BENCH TOTTI",
       type: "Sofas",
+      t: "Sofas",
       image:
         "https://api.woodfans.ru/storage/uploads/images/2H44hPIgIAFBZ7gGrsJn4sksWDvXMa1xrD1EWZ23_cropped_1975_1975_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/650DrgjXtUX22WGSVLjztefrhGS4Yect2K42kYwN_widened_900.jpg",
@@ -74,6 +81,7 @@ const data = {
       id: 1,
       title: "BED SIMPLE",
       type: "BEDS",
+      t: "Beds",
       image:
         "https://api.woodfans.ru/storage/uploads/images/XzxEiQ1KGrLBWYm7NBwsNf6f5n8QvC0pKkA7esGW_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/153WIcT8EWeyhP5ExZ7WxmWPYOv7gZEEQr1BxVN7_cropped_1280_1275_widened_900.jpg",
@@ -84,6 +92,7 @@ const data = {
     {
       title: "BED JULE",
       type: "BEDS",
+      t: "Beds",
       image:
         "https://api.woodfans.ru/storage/uploads/images/aIlK4XJDCqtf2mREWwpOEPkGJ5traikhD364pSya_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/5455pLR79mXf7GT8DfYTIsmUH39q40I4vxw1J5iy_widened_900.jpg",
@@ -95,6 +104,7 @@ const data = {
     {
       title: "BED MELANIA",
       type: "BEDS",
+      t: "Beds",
       image:
         "https://api.woodfans.ru/storage/uploads/images/iD4hgIxckEoJsNHnpTYA5tqwAMNfRdzvUWOUEnOW_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/Xh1nK3sMp21CXueqIPaeDpLFwzXoC4p2uUksRhJG_widened_900.jpg",
@@ -106,6 +116,7 @@ const data = {
     {
       title: "BED ALMA",
       type: "BEDS",
+      t: "Beds",
       image:
         "https://api.woodfans.ru/storage/uploads/images/0RIl949LUOPFSpoASJ9MWMTTgorbdmxp5Nrmow3y_cropped_849_1280_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/oXwdJHXiaBLr4pWnoF986B8vmzteJhJOJoYCHuMS_widened_900.jpg",
@@ -117,6 +128,7 @@ const data = {
     {
       title: "BED PLETENKA",
       type: "BEDS",
+      t: "Beds",
       image:
         "https://api.woodfans.ru/storage/uploads/images/6W8e4agcOKdJZX96AUDyi57FbCCj5Ljy6G0h2Lgo_cropped_1498_1500_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/dExaRQoic2Ju3U3hR42crYXIhsCtfF9VOg7CnLnR_widened_900.jpg",
@@ -130,6 +142,7 @@ const data = {
     {
       title: "CHILDREN'S BED SOFTY",
       type: "Children's furniture",
+      t: "ChildrenFurniture",
       image:
         "https://api.woodfans.ru/storage/uploads/images/7XiqaLWd8wcVNeAzyvS0bQhuPCOQmQm7oahZ1Ui1_cropped_1399_1400_widened_900.webp",
       url1: "https://api.woodfans.ru/storage/uploads/images/HzDuuGDW17elFh8sBiiIVUNXYcVhcdbJ7ZEfkZXy_widened_900.webp",
@@ -141,6 +154,7 @@ const data = {
     {
       title: "CHILDREN'S BED CLOUD",
       type: "Children's furniture",
+      t: "ChildrenFurniture",
       image:
         "https://api.woodfans.ru/storage/uploads/images/oSx9eHc1pmCEGEl1VE8vuBrSUwQLddCjr28gT88x_widened_900.webp",
       url1: "https://api.woodfans.ru/storage/uploads/images/OoxrvASsOEMUgUa8lRzepDVlvrdj0yJzDiavg9EN_widened_900.webp",
@@ -152,6 +166,7 @@ const data = {
     {
       title: "CHILDREN'S BED SEA",
       type: "Children's furniture",
+      t: "ChildrenFurniture",
       image:
         "https://api.woodfans.ru/storage/uploads/images/NSjdh0TGxEKIhTrxQ0aVukmzoWc58XEiWx6W7U18_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/LQllvgiBLyucRJPDn8QxNU07vey3gXN97BE22gUK_widened_900.jpg",
@@ -163,6 +178,7 @@ const data = {
     {
       title: "BABY BED ROBBY",
       type: "Children's furniture",
+      t: "ChildrenFurniture",
       image:
         "https://api.woodfans.ru/storage/uploads/images/6KgCwudmuJpMvaoln9aozEklvrn9EbQu7BInLbZW_widened_900.png",
       url1: "https://api.woodfans.ru/storage/uploads/images/agPg2ECGD6oxT6ERs7MuGPoq1kZdcxVZLVwaAU2B_widened_900.png",
@@ -174,6 +190,7 @@ const data = {
     {
       title: "BABY CHAIR",
       type: "Children's furniture",
+      t: "ChildrenFurniture",
       image:
         "https://api.woodfans.ru/storage/uploads/images/MLISLOkWj1lULptnHzjjVL70nZRy3ZCoaTG0nw5p_cropped_4392_4392_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/39ZMG5fNp4NZOuCxatkUhFQHEFR5IqJKgFTTKRG1_widened_800.jpg",
@@ -185,6 +202,7 @@ const data = {
     {
       title: "CHILDREN'S BED BUFFY",
       type: "Children's furniture",
+      t: "ChildrenFurniture",
       image:
         "https://api.woodfans.ru/storage/uploads/images/5BkiiqKMObhRJeGEDYgZ1qhZU6B2pHcHWYNy4uq4_widened_900.webp",
       url1: "https://api.woodfans.ru/storage/uploads/images/RI38aztLEkGyStiqMzKF3GPt8DGtmKhn439aWB16_cropped_917_843_widened_900.jpg",
@@ -196,6 +214,7 @@ const data = {
     {
       title: "CHILDREN'S CHAIR BUNNY",
       type: "Children's furniture",
+      t: "ChildrenFurniture",
       image:
         "https://api.woodfans.ru/storage/uploads/images/Bl4SpEhA7tcR911olEAluGUn2rChb7KT7QnYT9WU_widened_900.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/oP4Poyx2oMCRp0NDtdM7JqobtgKKmPfJ1TuXi9fn_widened_900.jpg",
@@ -207,6 +226,7 @@ const data = {
     {
       title: "CHILDREN'S CHAIR ANGEL",
       type: "Children's furniture",
+      t: "ChildrenFurniture",
       image:
         "https://api.woodfans.ru/storage/uploads/images/abR8FmgqFjhdkSf1xXmNnm7tBI1pGjEp1BXswlMW_cropped_1000_998_widened_900.webp",
       url1: "https://api.woodfans.ru/storage/uploads/images/hpRzMcKszrcIi5QXEgMlennMydKu9IIM0XkxSyPi_widened_900.jpg",
@@ -220,6 +240,7 @@ const data = {
     {
       title: "BANQUETTE MADE OF SOLID",
       type: "Armchairs and poufs",
+      t: "ArmChair",
       image:
         "https://api.woodfans.ru/storage/uploads/images/vJkPhZiU7v81PlxjnqcY4jsmXnWxJKEuUy2UgUQZ_widened_540.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/r5CL6Y8QVTZnBylItzKjGuodARG9VupVt1kAwzi3_widened_540.jpg",
@@ -231,6 +252,7 @@ const data = {
     {
       title: "POUF CURVE",
       type: "Armchairs and poufs",
+      t: "ArmChair",
       image:
         "https://api.woodfans.ru/storage/uploads/images/X1nlKgODlDigtd42ANZH64N0sqxb8ArcMGe8w8WP_widened_540.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/TeJxW3uDj9rbKYXHmuRwuxrYHooRxXSFncSHmxmT_widened_540.jpg",
@@ -242,6 +264,7 @@ const data = {
     {
       title: "ARMCHAIR TWIGGY",
       type: "Armchairs and poufs",
+      t: "ArmChair",
       image:
         "https://api.woodfans.ru/storage/uploads/images/oVKPEhZSxmpkFIH0tADZT0whaekGO7HrzeYQKZTy_cropped_2173_2000_widened_540.png",
       url1: "https://api.woodfans.ru/storage/uploads/images/GIDToVzZDwnsemDjPABeOli4ltFLL8ye6DAcVplM_cropped_2150_2000_widened_540.png",
@@ -253,6 +276,7 @@ const data = {
     {
       title: "BENCH SFERA",
       type: "Armchairs and poufs",
+      t: "ArmChair",
       image:
         "https://api.woodfans.ru/storage/uploads/images/J5AiKjkpASm1Rz2Sv4pcrvtUSnmJB7sw9BGOYDbC_widened_540.webp",
       url1: "https://api.woodfans.ru/storage/uploads/images/6SPrWlnJlQxnfy0Cf70dIL4P9cOpzMl9jai2O2TY_cropped_2052_2000_widened_540.png",
@@ -264,6 +288,7 @@ const data = {
     {
       title: "POUF CUBE",
       type: "Armchairs and poufs",
+      t: "ArmChair",
       image:
         "https://api.woodfans.ru/storage/uploads/images/oT38UlUPk0js4uqIaSrQlLwQwhAP50LzEE4ZQoTS_widened_540.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/hNs08MoaiKk3OZlklsnqunr7aYQcVVTXJsBkwr6s_widened_540.jpg",
@@ -275,6 +300,7 @@ const data = {
     {
       title: "POUF TRIPOD",
       type: "Armchairs and poufs",
+      t: "ArmChair",
       image:
         "https://api.woodfans.ru/storage/uploads/images/a5SJWIWqQVjfcqaDEUSBqSP7Fh9yXQ60Aam3zDew_widened_540.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/2GWJDlcJVHEGJy9ACG5zPGkf18XS1if7FuHg4Lkw_widened_540.jpg",
@@ -286,6 +312,7 @@ const data = {
     {
       title: "ARMCHAIR MOONLIGHT",
       type: "Armchairs and poufs",
+      t: "ArmChair",
       image:
         "https://api.woodfans.ru/storage/uploads/images/hbAzGbwhcNpF9Pmrr4OF8kZX6hHjHi3kdSUHKCYY_widened_540.jpg",
       url1: "https://api.woodfans.ru/storage/uploads/images/7RS4zEFf9s4wYmHft0rOu6iuDAXRBv9Dxrt1I8HX_widened_540.jpg",
@@ -297,6 +324,7 @@ const data = {
     {
       title: "LLAMA FUR CHAIR",
       type: "Armchairs and poufs",
+      t: "ArmChair",
       image:
         "https://api.woodfans.ru/storage/uploads/images/xm5MB9izJWBozqaEYYqJ7vH5j6bNQno9ltsGCNHM_cropped_1800_1790_widened_540.webp",
       url1: "https://api.woodfans.ru/storage/uploads/images/UmaPHDlW1aDJm3GNgVfZ57pb4vq0ZrQRV9qyKkiz_widened_540.webp",

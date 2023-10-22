@@ -24,7 +24,7 @@ const Navbar = () => {
     const [dropDownSearch, setDropDownSearch] = useState(false)
     const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     const userName = useSelector((store) => store.AuthReducer.name);
-
+    // const [insideOpen, setInsideOpen] = useState(false);
 
 
     const handleProductType = (productType) => {
@@ -33,6 +33,7 @@ const Navbar = () => {
 
     const dispatch = useDispatch()
     const [searchResults, setsearchResults] = useState("");
+    const [close, setClose] = useState(false)
     const debounce = useRef();
     const [searchedData, setSearchedData] = useState([])
     const navigate = useNavigate();
@@ -56,6 +57,7 @@ const Navbar = () => {
                 }
             }
             setSearchedData(arr)
+            setClose(true)
         }, 500);
     }, [searchResults])
 
@@ -85,7 +87,7 @@ const Navbar = () => {
                                         {
                                             searchedData.length ? (searchedData.map((e) => {
                                                 return (
-                                                    <div key={e.id}>{e.title}</div>
+                                                    <div key={e.id} onClick={() => { navigate(`/product/productdetails/${e.t}/${e.id}`); setsearchResults("") }}>{e.title}</div>
                                                 )
                                             })) : (<div>No Results...</div>)
                                         }
@@ -137,7 +139,7 @@ const Navbar = () => {
                                 {
                                     searchedData.length ? (searchedData.map((e) => {
                                         return (
-                                            <div key={e.id}>{e.title}</div>
+                                            <div key={e.id} onClick={() => { setsearchResults(""); navigate(`/product/productdetails/${e.t}/${e.id}`) }}>{e.title}</div>
                                         )
                                     })) : (<div>No Results...</div>)
                                 }
