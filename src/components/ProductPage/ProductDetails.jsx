@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import styles from './ProductDeatils.module.css'
 import axios from "axios";
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { store } from '../../Redux/store';
+import { addToCart } from '../CartPage/redux/action';
 const ProductDetails = () => {
   const [data, setData] = useState([]);
   const { type, id } = useParams();
@@ -11,12 +12,14 @@ const ProductDetails = () => {
   console.log(value)
   const { productType } = useSelector((store) => { return store.ProductReducer });
   const { detailObjId } = useSelector((store) => { return store.ProductDetailReducer })
+  const dispatch = useDispatch()
   const fetching = () => {
     const res = axios.get(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${type}/${id - 1}.json`)
       .then((res) => { setData(res.data) })
 
   }
-  useEffect(() => { fetching() }, [])
+
+  useEffect(() => { fetching() }, [id])
   return (
     <div>
       <div className={styles.container}>
@@ -78,12 +81,8 @@ const ProductDetails = () => {
               </select>
             </div>
             <div>
-              <p className={styles.submit}> <button>Add To Cart</button></p>
+              <p className={styles.submit} onClick={() => { dispatch(addToCart([{ ...data, qty: 1 }])) }}> <button>Add To Cart</button></p>
             </div>
-
-
-
-
           </div>
         </div>
       </div>

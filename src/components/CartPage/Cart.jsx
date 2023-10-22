@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
 
-
+  const isAuth = useSelector((store) => store.AuthReducer.isAuth)
+  // console.log(isAuth) 
   const data = useSelector((store) => store.CartReducer)
   const navigate = useNavigate();
 
@@ -48,7 +49,10 @@ const Cart = () => {
         </div>
       </div>
       <div>
-        <PriceDetail onclick={() => { navigate("/address") }} title={"Checkout"} />
+        {
+          isAuth ? (<PriceDetail onclick={() => { navigate("/address") }} title={"Checkout"} />) : (<PriceDetail onclick={() => { navigate("/login") }} title={"First Login"} />)
+        }
+
       </div>
     </div>
   );
