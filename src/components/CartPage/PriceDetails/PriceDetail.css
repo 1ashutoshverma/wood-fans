@@ -4,13 +4,16 @@
   position: sticky;
 }
 .priceDetail {
-  color: #888;
+  color: #636262;
   text-align: left;
   width: 320px;
 }
 
 #mainContainer {
-  background-color: white;
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-bottom: 40px;
+  padding: 20px 15px;
   margin-left: 20px;
   margin-right: 60px;
 }
@@ -47,7 +50,7 @@
 
 .checkOutBtn {
   padding: 15px 130px;
-  background-color: #fb641b;
+  background-color: #fccd5c;
   color: white;
   font-weight: bold;
   font-size: 16px;

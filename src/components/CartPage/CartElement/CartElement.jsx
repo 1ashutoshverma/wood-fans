@@ -11,7 +11,7 @@ const CartElement = ({ name, seller, image, price, discount, quantity }) => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="mainCartElement">
       <div id="cartElementContainer">
         <div>
           <img src={image} width={150} height={150} />
@@ -33,7 +33,7 @@ const CartElement = ({ name, seller, image, price, discount, quantity }) => {
             className="decrement"
             disabled={quantity == 1}
             onClick={() => {
-              dispatch(decreaseQty(name))
+              dispatch(decreaseQty(name));
               setMainPrice(mainPrice - price);
               setDiscountPrice(
                 discountPrice - (price - price * (discount / 100))
@@ -46,9 +46,11 @@ const CartElement = ({ name, seller, image, price, discount, quantity }) => {
           <button
             className="increment"
             onClick={() => {
-              dispatch(increaseQty(name))
+              dispatch(increaseQty(name));
               setMainPrice(mainPrice + price);
-              setDiscountPrice(discountPrice + (price - price * (discount / 100)));
+              setDiscountPrice(
+                discountPrice + (price - price * (discount / 100))
+              );
             }}
           >
             +
@@ -56,9 +58,13 @@ const CartElement = ({ name, seller, image, price, discount, quantity }) => {
         </div>
         <div id="removeBtn">
           <button>SAVE FOR LATER</button>
-          <button onClick={() => {
-            dispatch(removeFromCart(name))
-          }}>REMOVE</button>
+          <button
+            onClick={() => {
+              dispatch(removeFromCart(name));
+            }}
+          >
+            REMOVE
+          </button>
         </div>
       </div>
     </div>
