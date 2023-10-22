@@ -3,7 +3,7 @@ import "./Formpage.css"; // Import the CSS for styling
 import PriceDetail from "../PriceDetails/PriceDetail";
 import useRazorpay from "react-razorpay";
 
-import logo from "../../Navbar/NavbarImages/logo.svg"
+import logo from "../../Navbar/NavbarImages/Logo.svg"
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
