@@ -1,12 +1,14 @@
+import { useDispatch } from "react-redux";
 import "./CartElement.css";
 import { useState } from "react";
-const CartElement = ({ name, seller, image, price, discount }) => {
+import { decreaseQty, increaseQty, removeFromCart } from "../redux/action";
+const CartElement = ({ name, seller, image, price, discount, quantity }) => {
   console.log(name, seller, image, price, discount);
   const [mainPrice, setMainPrice] = useState(price);
   const [discountPrice, setDiscountPrice] = useState(
     price - price * (discount / 100)
   );
-  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -31,7 +33,7 @@ const CartElement = ({ name, seller, image, price, discount }) => {
             className="decrement"
             disabled={quantity == 1}
             onClick={() => {
-              setQuantity(quantity - 1);
+              dispatch(decreaseQty(name))
               setMainPrice(mainPrice - price);
               setDiscountPrice(
                 discountPrice - (price - price * (discount / 100))
@@ -44,7 +46,7 @@ const CartElement = ({ name, seller, image, price, discount }) => {
           <button
             className="increment"
             onClick={() => {
-              setQuantity(quantity + 1);
+              dispatch(increaseQty(name))
               setMainPrice(mainPrice + price);
               setDiscountPrice(discountPrice + (price - price * (discount / 100)));
             }}
@@ -54,7 +56,9 @@ const CartElement = ({ name, seller, image, price, discount }) => {
         </div>
         <div id="removeBtn">
           <button>SAVE FOR LATER</button>
-          <button>REMOVE</button>
+          <button onClick={() => {
+            dispatch(removeFromCart(name))
+          }}>REMOVE</button>
         </div>
       </div>
     </div>

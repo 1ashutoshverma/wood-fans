@@ -1,6 +1,15 @@
+import { useSelector } from "react-redux";
 import "./PriceDetail.css";
 import { Link } from "react-router-dom";
 const PriceDetail = () => {
+  const data = useSelector((store) => store.CartReducer)
+
+  let details = data.reduce((acc, e) => {
+    return { ...acc, qty: acc.qty + e.qty, total: acc.total + Number(e.price) * e.qty }
+  }, { qty: 0, total: 0 })
+  console.log(details)
+  const discount = Math.round(details.total * 24 / 100);
+
   return (
     <div id="mainContainer">
       <div id="priceContainer">
@@ -9,12 +18,12 @@ const PriceDetail = () => {
         </div>
         <hr />
         <div className="priceTags">
-          <p>Price (2 items)</p>
-          <h4>₹40,999</h4>
+          <p>Price ({details.qty} items)</p>
+          <h4>{details.total}</h4>
         </div>
         <div className="priceTags">
           <p>Discount</p>
-          <h4>₹22,200</h4>
+          <h4>{discount}</h4>
         </div>
         <div className="priceTags">
           <p>Delivery Charges</p>
@@ -27,7 +36,7 @@ const PriceDetail = () => {
       </div>
       <div className="totalAmount priceTags">
         <h3>Total Amount</h3>
-        <h3>₹18,799</h3>
+        <h3>{details.total - discount}</h3>
       </div>
       <hr className="dotted-line"></hr>
       <div className="checkOutContainer">
