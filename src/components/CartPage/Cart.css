@@ -89,3 +89,10 @@
 .emptyBtn:hover {
   background-color: #0056b3;
 }
+
+@media screen and (min-width: 520px) and (max-width: 1100px) {
+  #cartContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
