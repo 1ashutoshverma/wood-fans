@@ -25,10 +25,10 @@ const Navbar = () => {
     const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     const userName = useSelector((store) => store.AuthReducer.name);
 
- 
 
-    const handleProductType=(productType)=>{
-    AddProductType(dispatch,productType);
+
+    const handleProductType = (productType) => {
+        AddProductType(dispatch, productType);
     }
 
     const dispatch = useDispatch()
@@ -61,7 +61,7 @@ const Navbar = () => {
 
 
     return (
-        <div id={style.navbar_container} >
+        <div className={style.navbar_container} >
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
             <div className={style.navbar_bigscreen}>
 
@@ -69,7 +69,7 @@ const Navbar = () => {
                 <div className={style.navbar_content_container}>
                     <div className={style.navbar_top}>
                         <div>
-                            <p><Link to={"#"}  className={style.link}>Indivisual project</Link></p>
+                            <p><Link to={"#"} className={style.link}>Indivisual project</Link></p>
                             <p><Link to={"#"} className={style.link}>Delivery</Link></p>
                             <p><Link to={"#"} className={style.link}>Payment</Link></p>
                             <p><Link to={"#"} className={style.link}>Blog</Link></p>
@@ -81,7 +81,7 @@ const Navbar = () => {
                                 <input type="text" placeholder='Search Items...' value={searchResults} onChange={(e) => setsearchResults(e.target.value)} />
                                 <img src={search} alt="" />
                                 {
-                                    searchResults.length > 0 ? (<div o className={style.searchDropdown}>
+                                    searchResults.length > 0 ? (<div className={style.searchDropdown}>
                                         {
                                             searchedData.length ? (searchedData.map((e) => {
                                                 return (
@@ -112,10 +112,10 @@ const Navbar = () => {
                     </div>
                     <div className={style.navbar_bottom}>
                         <div>
-                            <p onClick={()=>{handleProductType("Sofas")}}><Link to={"/product"} className={style.link}>SOFAS</Link></p>
-                            <p onClick={()=>{handleProductType("Beds")}}><Link to={"/product"} className={style.link}>BED</Link></p>
-                            <p onClick={()=>{handleProductType("ChildrenFurniture")}}><Link to={"/product"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
-                            <p onClick={()=>{handleProductType("ArmChair")}}><Link to={"/product"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
+                            <p onClick={() => { handleProductType("Sofas") }}><Link to={"/product"} className={style.link}>SOFAS</Link></p>
+                            <p onClick={() => { handleProductType("Beds") }}><Link to={"/product"} className={style.link}>BED</Link></p>
+                            <p onClick={() => { handleProductType("ChildrenFurniture") }}><Link to={"/product"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
+                            <p onClick={() => { handleProductType("ArmChair") }}><Link to={"/product"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
                             <div><b style={{ fontSize: "0.9rem" }}>+7 (926) 787-11-00</b></div>
