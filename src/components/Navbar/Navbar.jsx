@@ -81,7 +81,7 @@ const Navbar = () => {
                                 <input type="text" placeholder='Search Items...' value={searchResults} onChange={(e) => setsearchResults(e.target.value)} />
                                 <img src={search} alt="" />
                                 {
-                                    searchResults.length > 0 ? (<div className={style.searchDropdown}>
+                                    searchResults.length > 0 ? (<div o className={style.searchDropdown}>
                                         {
                                             searchedData.length ? (searchedData.map((e) => {
                                                 return (

@@ -9,15 +9,21 @@ import { AddToCart } from './ProductReducer/action';
 const ProductContainer = () => {
   const [data, setData] = useState([]);
   const dispatch=useDispatch();
-
+ const[type,setType]=useState("Sofas");
   const {productType}=useSelector((store)=>{return store.ProductReducer});
-  console.log(productType)
-
   const fetching =async () => {
     try {
     const res = await axios.get(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${productType}.json`)
     const jsonData=await (res.data);
-    console.log(jsonData)
+    if(productType=="Beds"){
+      setType("Beds");
+    }
+    else if(productType=="ChildrenFurniture"){
+      setType("Children's furniture")
+    }
+    else if(productType=="ArmChair"){
+      setType("ARMCHAIRS AND POUFS");
+    }
     setData(jsonData);
     } catch (error) {
       console.log(error)
@@ -27,14 +33,15 @@ const ProductContainer = () => {
     AddToCart(dispatch,ele)
   }
   useEffect(() => {
-    fetching() }, [productType])
+    fetching() }, [productType,type])
+
 
   return (
     <div className={styles.container}>
-      <h1>{data.type}</h1>
+      <h1>{type}</h1>
       <div className={styles.singleCard}>
         {
-          data.map((ele) => (<div key={ele.id}>
+          data.map((ele) => (<div key={ele.id}> 
             <img src={ele.image} alt="" />
 
             <div className={styles.nameDiv}>
@@ -44,7 +51,7 @@ const ProductContainer = () => {
             <div className={styles.priceDiv}>
               <p style={{ "marginTop": "0em" }}>  <Link to={`productdetails/${ele.id}`}>More details</Link></p>
               <p> {ele.cost}</p>
-              <button onClick={() => { handleDetails(ele) }}>Add to Cart
+              <button  onClick={() => { handleDetails(ele) }}>Add to Cart
 
 
               </button>
