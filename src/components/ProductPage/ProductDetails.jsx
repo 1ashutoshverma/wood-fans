@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import styles from './ProductDeatils.module.css'
 import axios from "axios";
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { store } from '../../Redux/store';
 const ProductDetails = () => {
   const[data,setData]=useState([]);
   const {id}=useParams();
+  const {productType}=useSelector((store)=>{return store.ProductReducer});
+  const{detailObjId}=useSelector((store)=>{return store.ProductDetailReducer})
   const fetching=()=>{
-  const res=axios.get(`http://localhost:8080/armchair/${id}`)
+  const res=axios.get(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${productType}/${id?id-1:detailObjId}.json`)
   .then((res)=>{ setData(res.data)})
 
   }

@@ -3,11 +3,14 @@ import style from "./BuyersChoice.module.css"
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../CartPage/redux/action';
+import { AddDetailsObj } from '../ProductPage/Redux/ProductDetailReducer/action';
+import { useNavigate } from 'react-router-dom';
 
 const BuyersChoice = () => {
     const [type, setType] = useState("Sofas");
     const [data, setData] = useState([]);
     const dispatch = useDispatch();
+    const navigate=useNavigate();
     const getData = async (type) => {
         try {
             const res = await axios(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${type}.json`)
@@ -52,7 +55,7 @@ const BuyersChoice = () => {
                                 <div key={e.id}>
                                     <img src={e.image} alt="" />
                                     <p> from ₹{e.price} </p>
-                                    <h3>{e.title}</h3>
+                                    <h3 onClick={()=>{AddDetailsObj(dispatch,e.id);navigate(`/product/productdetails/${e.id}`)}}>{e.title}</h3>
                                     <div>
                                         <h4>{e.type}</h4>
                                         <button onClick={() => { dispatch(addToCart([{ ...e, qty: 1 }])) }}>Buy Now</button>

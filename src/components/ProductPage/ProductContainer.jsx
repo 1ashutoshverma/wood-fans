@@ -9,17 +9,23 @@ import { addToCart } from '../CartPage/redux/action';
 
 const ProductContainer = () => {
   const [data, setData] = useState([]);
-  const dispatch = useDispatch();
-
-  const { productType } = useSelector((store) => { return store.ProductReducer });
-  console.log(productType)
-
-  const fetching = async () => {
+  const dispatch=useDispatch();
+ const[type,setType]=useState("Sofas");
+  const {productType}=useSelector((store)=>{return store.ProductReducer});
+  const fetching =async () => {
     try {
-      const res = await axios.get(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${productType}.json`)
-      const jsonData = await (res.data);
-      console.log(jsonData)
-      setData(jsonData);
+    const res = await axios.get(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${productType}.json`)
+    const jsonData=await (res.data);
+    if(productType=="Beds"){
+      setType("Beds");
+    }
+    else if(productType=="ChildrenFurniture"){
+      setType("Children's furniture")
+    }
+    else if(productType=="ArmChair"){
+      setType("ARMCHAIRS AND POUFS");
+    }
+    setData(jsonData);
     } catch (error) {
       console.log(error)
     }
@@ -28,15 +34,15 @@ const ProductContainer = () => {
     AddToCart(dispatch, ele)
   }
   useEffect(() => {
-    fetching()
-  }, [productType])
+    fetching() }, [productType,type])
+
 
   return (
     <div className={styles.container}>
-      <h1>{data.type}</h1>
+      <h1>{type}</h1>
       <div className={styles.singleCard}>
         {
-          data.map((ele) => (<div key={ele.id}>
+          data.map((ele) => (<div key={ele.id}> 
             <img src={ele.image} alt="" />
 
             <div className={styles.nameDiv}>
