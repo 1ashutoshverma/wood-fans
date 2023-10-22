@@ -6,8 +6,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+
+ 
   const data = useSelector((store) => store.CartReducer)
   const navigate = useNavigate();
+
   return data.length == 0 ? (
     <div className="emptyCardContainer">
       <div className="emptyBox">
