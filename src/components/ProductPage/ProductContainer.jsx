@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./productContainer.module.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { AddToCart } from './ProductReducer/action';
+import { addToCart } from '../CartPage/redux/action';
 
 
 const ProductContainer = () => {
@@ -30,7 +31,7 @@ const ProductContainer = () => {
     }
   }
   const handleDetails = (ele) => {
-    AddToCart(dispatch,ele)
+    AddToCart(dispatch, ele)
   }
   useEffect(() => {
     fetching() }, [productType,type])
@@ -51,7 +52,7 @@ const ProductContainer = () => {
             <div className={styles.priceDiv}>
               <p style={{ "marginTop": "0em" }}>  <Link to={`productdetails/${ele.id}`}>More details</Link></p>
               <p> {ele.cost}</p>
-              <button  onClick={() => { handleDetails(ele) }}>Add to Cart
+              <button onClick={() => { dispatch(addToCart([{ ...ele, qty: 1 }])) }}>Add to Cart
 
 
               </button>

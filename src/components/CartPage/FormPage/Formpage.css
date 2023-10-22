@@ -1,6 +1,13 @@
 .wrapperDivFormPage {
   /* border: 11px solid red; */
   padding-top: 130px;
+  max-width: 1420px;
+  /* margin-left: 60px; */
+  margin: auto;
+}
+
+.color-666666 {
+  padding-bottom: 10px;
 }
 
 .paymentContainer {
@@ -9,7 +16,6 @@
 }
 
 #delivery-address {
-  max-width: 1280px;
   display: grid;
   margin: auto;
   grid-template-columns: 0.7fr 0.25fr;
@@ -89,6 +95,11 @@ body div > form h4 span {
   display: flex;
   gap: 1rem;
 }
+
+#Address-details {
+  margin-top: 8px;
+}
+
 #first-name,
 #lastname,
 #contact,

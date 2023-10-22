@@ -4,14 +4,11 @@ import { useState } from "react";
 import { decreaseQty, increaseQty, removeFromCart } from "../redux/action";
 const CartElement = ({ name, seller, image, price, discount, quantity }) => {
   console.log(name, seller, image, price, discount);
-  const [mainPrice, setMainPrice] = useState(price);
-  const [discountPrice, setDiscountPrice] = useState(
-    price - price * (discount / 100)
-  );
+  const discountPrice = price * quantity - price * quantity * (discount / 100);
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="mainCartElement">
       <div id="cartElementContainer">
         <div>
           <img src={image} width={150} height={150} />
@@ -21,7 +18,7 @@ const CartElement = ({ name, seller, image, price, discount, quantity }) => {
           <p className="productDetails">Black, DIY(Do-It-Yourself)</p>
           <p className="sellerName">Seller:{seller}</p>
           <div id="elementPrice">
-            <span className="beforePrice">₹{mainPrice}</span>
+            <span className="beforePrice">₹{price * quantity}</span>
             <span className="currentPrice">₹{discountPrice.toFixed(0)}</span>
             <span className="discount">{discount}% Off</span>
           </div>
@@ -33,11 +30,7 @@ const CartElement = ({ name, seller, image, price, discount, quantity }) => {
             className="decrement"
             disabled={quantity == 1}
             onClick={() => {
-              dispatch(decreaseQty(name))
-              setMainPrice(mainPrice - price);
-              setDiscountPrice(
-                discountPrice - (price - price * (discount / 100))
-              );
+              dispatch(decreaseQty(name));
             }}
           >
             -
@@ -46,9 +39,7 @@ const CartElement = ({ name, seller, image, price, discount, quantity }) => {
           <button
             className="increment"
             onClick={() => {
-              dispatch(increaseQty(name))
-              setMainPrice(mainPrice + price);
-              setDiscountPrice(discountPrice + (price - price * (discount / 100)));
+              dispatch(increaseQty(name));
             }}
           >
             +
@@ -56,9 +47,13 @@ const CartElement = ({ name, seller, image, price, discount, quantity }) => {
         </div>
         <div id="removeBtn">
           <button>SAVE FOR LATER</button>
-          <button onClick={() => {
-            dispatch(removeFromCart(name))
-          }}>REMOVE</button>
+          <button
+            onClick={() => {
+              dispatch(removeFromCart(name));
+            }}
+          >
+            REMOVE
+          </button>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
 
- 
+
   const data = useSelector((store) => store.CartReducer)
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ const Cart = () => {
         </div>
       </div>
       <div>
-        <PriceDetail />
+        <PriceDetail onclick={() => { navigate("/address") }} title={"Checkout"} />
       </div>
     </div>
   );
