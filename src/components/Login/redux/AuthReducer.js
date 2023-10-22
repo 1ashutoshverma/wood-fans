@@ -6,7 +6,6 @@ const intialState = {
   email: "",
 };
 const AuthReducer = (state = intialState, { type, payload }) => {
-  console.log(payload);
   switch (type) {
     case "login":
       return {
