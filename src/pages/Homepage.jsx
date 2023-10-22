@@ -6,12 +6,14 @@ import Photogallary from '../components/HomePage/Photogallary'
 import Team from '../components/HomePage/Team'
 import ContactsUs from '../components/HomePage/ContactsUs'
 import { useSelector } from 'react-redux'
+import BuyersChoice from '../components/HomePage/BuyersChoice'
 
 
 const Homepage = () => {
     return (
         <div>
             <Carousel />
+            <BuyersChoice />
             <Section1 />
             <Section2 />
             <Photogallary />
