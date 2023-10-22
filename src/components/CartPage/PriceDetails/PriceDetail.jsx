@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import "./PriceDetail.css";
 import { Link } from "react-router-dom";
-const PriceDetail = () => {
+const PriceDetail = ({ title, onclick }) => {
   const data = useSelector((store) => store.CartReducer)
 
   let details = data.reduce((acc, e) => {
@@ -40,8 +40,9 @@ const PriceDetail = () => {
       </div>
       <hr className="dotted-line"></hr>
       <div className="checkOutContainer">
-        <button className="checkOutBtn">
-          <Link className="checkoutLink" to={"/address"}>Checkout</Link>
+        <button className="checkOutBtn" onClick={() => { onclick() }}>
+          {/* <Link className="checkoutLink" >{title}</Link> */}
+          {title}
         </button>
       </div>
     </div>
