@@ -279,7 +279,7 @@
   margin-top: 5px;
 }
 
-@media screen and (width<1000px) {
+@media screen and (max-width: 1000px) {
   .navbar_top div > p {
     font-size: 0.8rem;
   }
@@ -307,7 +307,7 @@
     text-wrap: nowrap;
   }
 }
-@media screen and (width>850px) {
+@media screen and (min-width: 850px) {
   .navbar_smallscreen {
     display: none;
   }
@@ -315,7 +315,7 @@
     display: none;
   }
 }
-@media screen and (width<850px) {
+@media screen and (max-width: 850px) {
   .navbar_bigscreen {
     display: none;
   }
