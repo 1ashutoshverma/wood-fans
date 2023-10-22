@@ -6,21 +6,44 @@ import burger from "./NavbarImages/BurgerMenu.svg"
 import cross from "./NavbarImages/Cross.svg"
 import human from "./NavbarImages/human-icon.svg"
 import style from "./Navbar.module.css"
-import { Link } from 'react-router-dom'
+
+
+
+
+import { AddProductType } from '../ProductPage/ProductReducer/action'
+
+
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogout } from '../Login/redux/action'
 import SearchData from './SearchData'
+
 const Navbar = () => {
     const [clickedHumburger, setClickedHumburger] = useState(false)
     const [dropDownLogin, setDropDownLogin] = useState(false)
     const [dropDownSearch, setDropDownSearch] = useState(false)
     const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     const userName = useSelector((store) => store.AuthReducer.name);
+
+ 
+
+    const handleProductType=(productType)=>{
+    AddProductType(dispatch,productType);
+    }
+
     const dispatch = useDispatch()
     const [searchResults, setsearchResults] = useState("");
     const debounce = useRef();
     const [searchedData, setSearchedData] = useState([])
+    const navigate = useNavigate();
 
+    //=====================>>
+    const data = useSelector((store) => store.CartReducer)
+
+    let details = data.reduce((acc, e) => {
+        return { ...acc, qty: acc.qty + e.qty }
+    }, { qty: 0 })
+    //=====================>>
     useEffect(() => {
         clearTimeout(debounce.current);
         debounce.current = setTimeout(() => {
@@ -36,6 +59,7 @@ const Navbar = () => {
         }, 500);
     }, [searchResults])
 
+
     return (
         <div id={style.navbar_container} >
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
@@ -45,7 +69,7 @@ const Navbar = () => {
                 <div className={style.navbar_content_container}>
                     <div className={style.navbar_top}>
                         <div>
-                            <p><Link to={"#"} className={style.link}>Indivisual project</Link></p>
+                            <p><Link to={"#"}  className={style.link}>Indivisual project</Link></p>
                             <p><Link to={"#"} className={style.link}>Delivery</Link></p>
                             <p><Link to={"#"} className={style.link}>Payment</Link></p>
                             <p><Link to={"#"} className={style.link}>Blog</Link></p>
@@ -72,30 +96,33 @@ const Navbar = () => {
                                 !isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} />
                                     {
                                         dropDownLogin ? (<div className={style.logindropdown}>
-                                            <div>{userName}</div>
-                                            <div>My Cart</div>
+                                            <div onClick={() => { navigate("/"); setDropDownLogin(false) }}>{userName}</div>
+                                            <div onClick={() => { navigate("/cart"); setDropDownLogin(false) }}>My Cart</div>
                                             <div onClick={() => { dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
                                         </div>) : (<></>)
                                     }
                                 </div>)
                             }
 
-                            <Link to="/cart"><img src={cart} className={style.navbar_cart} /></Link>
+                            <Link to="/cart"><img src={cart} className={style.navbar_cart} />
+                                <p className={style.countBigScreen}>{details.qty}</p>
+
+                            </Link>
                         </div>
                     </div>
                     <div className={style.navbar_bottom}>
                         <div>
-                            <p><Link to={"/product"} className={style.link}>SOFAS</Link></p>
-                            <p><Link to={"#"} className={style.link}>BED</Link></p>
-                            <p><Link to={"#"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
-                            <p><Link to={"#"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
+                            <p onClick={()=>{handleProductType("Sofas")}}><Link to={"/product"} className={style.link}>SOFAS</Link></p>
+                            <p onClick={()=>{handleProductType("Beds")}}><Link to={"/product"} className={style.link}>BED</Link></p>
+                            <p onClick={()=>{handleProductType("ChildrenFurniture")}}><Link to={"/product"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
+                            <p onClick={()=>{handleProductType("ArmChair")}}><Link to={"/product"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
                             <div><b style={{ fontSize: "0.9rem" }}>+7 (926) 787-11-00</b></div>
                             <p style={{ fontSize: "0.9rem" }}>Modern Furniture factory</p>
                         </div>
 
-                    </div >
+                    </div>
                 </div>
             </div>
             {/* ----------Navbar for Laptop Screen Ends Here ------------ */}
@@ -121,15 +148,17 @@ const Navbar = () => {
                         !isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin) }} />
                             {
                                 dropDownLogin ? (<div className={style.logindropdown}>
-                                    <div>{userName}</div>
-                                    <div>My Cart</div>
+                                    <div onClick={() => { navigate("/"); setDropDownLogin(false) }}>{userName}</div>
+                                    <div onClick={() => { navigate("/cart"); setDropDownLogin(false) }}>My Cart</div>
                                     <div onClick={() => { dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
                                 </div>) : (<></>)
                             }
                         </div>)
                     }
-                    <img src={cart} className={style.navbar_cart} />
-                    {/* {MenuIcon} */}
+                    <div>
+                        <img src={cart} className={style.navbar_cart} onClick={() => { navigate("/cart") }} />
+                        <p className={style.countBigScreen}>{details.qty}</p>
+                    </div>
                     <img src={clickedHumburger ? cross : burger} className={style.navbar_humburger} onClick={() => { setClickedHumburger(!clickedHumburger) }} />
                 </div>
             </div>
