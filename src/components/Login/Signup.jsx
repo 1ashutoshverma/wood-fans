@@ -11,7 +11,6 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { userLogin } from './redux/action';
 // import { firebase } from './firebase';
-
 const Signup = ({ isLoginSelected, setIsLoginSelected }) => {
   const [formData, setFormData] = useState({
     name: '',

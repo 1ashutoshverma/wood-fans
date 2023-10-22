@@ -6,16 +6,31 @@ import burger from "./NavbarImages/BurgerMenu.svg"
 import cross from "./NavbarImages/Cross.svg"
 import human from "./NavbarImages/human-icon.svg"
 import style from "./Navbar.module.css"
+
+
+
+
+import { AddProductType } from '../ProductPage/ProductReducer/action'
+
+
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogout } from '../Login/redux/action'
 import SearchData from './SearchData'
+
 const Navbar = () => {
     const [clickedHumburger, setClickedHumburger] = useState(false)
     const [dropDownLogin, setDropDownLogin] = useState(false)
     const [dropDownSearch, setDropDownSearch] = useState(false)
     const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     const userName = useSelector((store) => store.AuthReducer.name);
+
+ 
+
+    const handleProductType=(productType)=>{
+    AddProductType(dispatch,productType);
+    }
+
     const dispatch = useDispatch()
     const [searchResults, setsearchResults] = useState("");
     const debounce = useRef();
@@ -44,6 +59,7 @@ const Navbar = () => {
         }, 500);
     }, [searchResults])
 
+
     return (
         <div id={style.navbar_container} >
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
@@ -53,7 +69,7 @@ const Navbar = () => {
                 <div className={style.navbar_content_container}>
                     <div className={style.navbar_top}>
                         <div>
-                            <p><Link to={"#"} className={style.link}>Indivisual project</Link></p>
+                            <p><Link to={"#"}  className={style.link}>Indivisual project</Link></p>
                             <p><Link to={"#"} className={style.link}>Delivery</Link></p>
                             <p><Link to={"#"} className={style.link}>Payment</Link></p>
                             <p><Link to={"#"} className={style.link}>Blog</Link></p>
@@ -96,17 +112,17 @@ const Navbar = () => {
                     </div>
                     <div className={style.navbar_bottom}>
                         <div>
-                            <p><Link to={"/product"} className={style.link}>SOFAS</Link></p>
-                            <p><Link to={"#"} className={style.link}>BED</Link></p>
-                            <p><Link to={"#"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
-                            <p><Link to={"#"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
+                            <p onClick={()=>{handleProductType("Sofas")}}><Link to={"/product"} className={style.link}>SOFAS</Link></p>
+                            <p onClick={()=>{handleProductType("Beds")}}><Link to={"/product"} className={style.link}>BED</Link></p>
+                            <p onClick={()=>{handleProductType("ChildrenFurniture")}}><Link to={"/product"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
+                            <p onClick={()=>{handleProductType("ArmChair")}}><Link to={"/product"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
                             <div><b style={{ fontSize: "0.9rem" }}>+7 (926) 787-11-00</b></div>
                             <p style={{ fontSize: "0.9rem" }}>Modern Furniture factory</p>
                         </div>
 
-                    </div >
+                    </div>
                 </div>
             </div>
             {/* ----------Navbar for Laptop Screen Ends Here ------------ */}
