@@ -14,16 +14,16 @@ const Section1 = () => {
                     <h2>Catalogue of our products</h2>
                     <div>
                         <div className={style.section1CatalogeImage}><img src={bed} alt="" /></div>
-                        <p>Bed <span>→</span></p>
+                        <p><Link to="/product">Bed</Link> <span>→</span></p>
                     </div>
                     <div className={style.Section1CardSection}>
                         <div>
                             <div><img src={child} alt="" /></div>
-                            <p>Children's furniture <span>→</span></p>
+                            <p><Link to="/product">Children's furniture</Link> <span>→</span></p>
                         </div>
                         <div>
                             <div><img src={chair} alt="" /></div>
-                            <p>Chairs <span>→</span></p>
+                            <p> <Link to="/product">Chairs</Link><span>→</span></p>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ const Section1 = () => {
                     <img src={sofa} alt="" />
                     <div className={style.OnPicture}>
                         <h1>Sofas</h1>
-                        <Link to={"#"} className={style.learnMore}>Learn More</Link><span> {" ⨠"}</span>
+                        <Link to={"/product"} className={style.learnMore}>Learn More</Link><span> {" ⨠"}</span>
                     </div>
                 </div>
             </div>

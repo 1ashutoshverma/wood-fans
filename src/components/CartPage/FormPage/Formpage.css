@@ -1,52 +1,169 @@
-/* FormPage.css */
-.form-container {
+.wrapperDivFormPage {
+  /* border: 11px solid red; */
+  padding-top: 130px;
+}
+
+.paymentContainer {
+  width: 70%;
+  margin-left: 2%;
+}
+
+#delivery-address {
+  max-width: 1280px;
+  display: grid;
+  margin: auto;
+  grid-template-columns: 0.7fr 0.25fr;
+  gap: 20px;
+}
+#Payment-nav {
+  width: 1170px;
+  margin: auto;
+}
+
+#full-form {
+  width: 1170px;
+  margin: auto;
+  padding-bottom: 40px;
+}
+.Payment-heading {
+  text-align: center;
+}
+
+#full-form {
   display: flex;
-  flex-direction: column;
+  gap: 1rem;
+}
+
+#full-form #payment {
+  flex: 4;
+}
+
+#flex-form #total-payment {
+  flex: 2;
+}
+
+#full-form > #payment > div {
+  border: 1px solid #f8f8f8;
+  padding: 15px;
+}
+
+.logo-img {
+  width: 5%;
+  margin-left: 4rem;
+  margin-top: 1rem;
+}
+
+#Payment-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-top: 20px;
+}
+
+.tollNumber {
+  display: flex;
+  text-align: center;
+  color: rgba(128, 128, 128, 0.637);
+}
+
+.heading-payment {
+  display: flex;
+  gap: 8px;
   align-items: center;
-  padding: 20px;
-  background-image: url("https://api.woodfans.ru/storage/uploads/images/2di18TNSAcHrzcfG68FtSqYgzYom9feqpLGnOcmx_widened_900.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  backdrop-filter: blur(5px);
-}
-.custom-form {
-  width: 300px;
-  background-color: rgba(240, 240, 240, 0.9);
-  padding: 80px;
-  padding-right: 100px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.form-group {
-  margin-bottom: 20px;
+  padding: 10px 0px;
 }
 
-label {
+.heading-payment h3 {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  font-size: 18px;
+}
+
+body div > form h4 span {
+  color: red;
+}
+#name-contact,
+#Address-details,
+#Street-details,
+#city-details {
+  display: flex;
+  gap: 1rem;
+}
+#first-name,
+#lastname,
+#contact,
+#houseNumber,
+#apartment,
+#street,
+#landmark,
+#city,
+#pincode,
+#area-det {
   display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+  margin-top: 0.5rem;
+  width: 12rem;
+  height: 2rem;
+  /* border-style:none ; */
+}
+#Street-details,
+#city-details {
+  margin-top: 1.5rem;
+}
+#contact {
+  width: 25rem;
+}
+#apartment {
+  width: 38.5rem;
+}
+#street,
+#landmark {
+  width: 25.3rem;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+#area-det {
+  width: 26.5rem;
 }
 
-.submit-button {
-  background-color: #007bff;
-  color: white;
+.form {
+  padding: 15px;
+  background-color: #fefcfc;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* padding-top: 145px; */
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+.form h4 {
+  font-size: 16px;
+  margin: 9px 0px;
+}
+
+.form label {
+  font-size: 13px;
+  margin: 0px 0px 5px;
+}
+
+.form input,
+.form select,
+.form textarea {
+  font-size: 13px;
+  padding: 6px 12px 4px;
+  outline: 0;
   border: none;
-  padding: 15px 130px;
+  height: 32px;
+  border: 1px solid rgb(225, 225, 225);
   border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
+  background-color: white;
 }
-
-.submit-button:hover {
-  background-color: #0056b3;
+.btn-dark-bg {
+  color: #fff;
+  background-color: #666;
+  border-color: transparent;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 15px 10px 0px 0px;
+  padding: 8px 15px 8px;
+  font-size: 13px;
+  opacity: 1;
+  cursor: pointer;
 }

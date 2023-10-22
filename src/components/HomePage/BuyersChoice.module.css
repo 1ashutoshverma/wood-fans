@@ -1,0 +1,12 @@
+.BuyersChoice {
+  max-width: 1280px;
+  margin: auto;
+}
+.linkProvider {
+  display: flex;
+  justify-content: space-between;
+}
+.linkProvider > div:nth-child(1) {
+  display: flex;
+  gap: 20px;
+}
