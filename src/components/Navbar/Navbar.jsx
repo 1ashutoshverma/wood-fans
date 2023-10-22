@@ -6,7 +6,7 @@ import burger from "./NavbarImages/BurgerMenu.svg"
 import cross from "./NavbarImages/Cross.svg"
 import human from "./NavbarImages/human-icon.svg"
 import style from "./Navbar.module.css"
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogout } from '../Login/redux/action'
 import SearchData from './SearchData'
@@ -20,7 +20,15 @@ const Navbar = () => {
     const [searchResults, setsearchResults] = useState("");
     const debounce = useRef();
     const [searchedData, setSearchedData] = useState([])
+    const navigate = useNavigate();
 
+    //=====================>>
+    const data = useSelector((store) => store.CartReducer)
+
+    let details = data.reduce((acc, e) => {
+        return { ...acc, qty: acc.qty + e.qty }
+    }, { qty: 0 })
+    //=====================>>
     useEffect(() => {
         clearTimeout(debounce.current);
         debounce.current = setTimeout(() => {
@@ -72,15 +80,18 @@ const Navbar = () => {
                                 !isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} />
                                     {
                                         dropDownLogin ? (<div className={style.logindropdown}>
-                                            <div>{userName}</div>
-                                            <div>My Cart</div>
+                                            <div onClick={() => { navigate("/"); setDropDownLogin(false) }}>{userName}</div>
+                                            <div onClick={() => { navigate("/cart"); setDropDownLogin(false) }}>My Cart</div>
                                             <div onClick={() => { dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
                                         </div>) : (<></>)
                                     }
                                 </div>)
                             }
 
-                            <Link to="/cart"><img src={cart} className={style.navbar_cart} /></Link>
+                            <Link to="/cart"><img src={cart} className={style.navbar_cart} />
+                                <p className={style.countBigScreen}>{details.qty}</p>
+
+                            </Link>
                         </div>
                     </div>
                     <div className={style.navbar_bottom}>
@@ -121,15 +132,17 @@ const Navbar = () => {
                         !isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin) }} />
                             {
                                 dropDownLogin ? (<div className={style.logindropdown}>
-                                    <div>{userName}</div>
-                                    <div>My Cart</div>
+                                    <div onClick={() => { navigate("/"); setDropDownLogin(false) }}>{userName}</div>
+                                    <div onClick={() => { navigate("/cart"); setDropDownLogin(false) }}>My Cart</div>
                                     <div onClick={() => { dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
                                 </div>) : (<></>)
                             }
                         </div>)
                     }
-                    <img src={cart} className={style.navbar_cart} />
-                    {/* {MenuIcon} */}
+                    <div>
+                        <img src={cart} className={style.navbar_cart} onClick={() => { navigate("/cart") }} />
+                        <p className={style.countBigScreen}>{details.qty}</p>
+                    </div>
                     <img src={clickedHumburger ? cross : burger} className={style.navbar_humburger} onClick={() => { setClickedHumburger(!clickedHumburger) }} />
                 </div>
             </div>

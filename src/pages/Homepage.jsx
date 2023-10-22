@@ -9,8 +9,6 @@ import { useSelector } from 'react-redux'
 
 
 const Homepage = () => {
-    const store = useSelector((store) => store)
-    console.log(store)
     return (
         <div>
             <Carousel />
