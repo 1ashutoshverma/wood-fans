@@ -25,6 +25,18 @@ const intialState = [
     id: 6,
     qty: 1,
   },
+  {
+    title: "PO TRIPOD",
+    type: "Armchairs and poufs",
+    image:
+      "https://api.woodfans.ru/storage/uploads/images/a5SJWIWqQVjfcqaDEUSBqSP7Fh9yXQ60Aam3zDew_widened_540.jpg",
+    url1: "https://api.woodfans.ru/storage/uploads/images/2GWJDlcJVHEGJy9ACG5zPGkf18XS1if7FuHg4Lkw_widened_540.jpg",
+    url2: "https://api.woodfans.ru/storage/uploads/images/ChiY8HjDlDGZNGqOgBjjU2SK1vMuetWXJ2VUTIex_widened_540.jpg",
+    url3: "https://api.woodfans.ru/storage/uploads/images/kiVackRSd71v8nXZAOhZaTuVrkpQai0tDMMNbKCt_widened_540.jpg",
+    price: "35000",
+    id: 6,
+    qty: 1,
+  },
 ];
 const CartReducer = (state = intialState, { type, payload }) => {
   switch (type) {
