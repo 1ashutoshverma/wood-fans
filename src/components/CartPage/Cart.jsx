@@ -31,8 +31,10 @@ const Cart = () => {
   //     discount: 24,
   //   },
   // ]);
-  const data = useSelector((store) => store.CartReducer)
-  // console.log(data)
+  const data = useSelector((store) => store.CartReducer);
+  const [payment, setPayment] = useState(false);
+
+  const handelForm = () => {};
 
   return data.length == 0 ? (
     <div className="emptyCardContainer">
@@ -71,7 +73,11 @@ const Cart = () => {
         </div>
       </div>
       <div>
-        <PriceDetail />
+        <PriceDetail
+          onClick={() => {
+            handelForm();
+          }}
+        />
       </div>
     </div>
   );
