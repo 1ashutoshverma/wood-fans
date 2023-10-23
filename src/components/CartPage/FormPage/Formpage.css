@@ -211,3 +211,20 @@ body div > form h4 span {
 .thankyouMsg {
   text-align: center;
 }
+
+@media screen and (min-width: 520px) and (max-width: 1450px) {
+  #delivery-address {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .form {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  .checkOutContainer {
+    display: flex;
+    justify-content: end;
+  }
+}

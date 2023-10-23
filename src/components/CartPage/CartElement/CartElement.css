@@ -100,3 +100,35 @@
   cursor: pointer;
   font-weight: 500;
 }
+
+@media screen and (min-width: 250px) and (max-width: 519px) {
+  .mainCartElement {
+    font-size: 10px;
+  }
+
+  #removeBtn {
+    gap: 5px;
+  }
+
+  #removeBtn button {
+    font-size: 13px;
+  }
+
+  .productName {
+    font-size: 14px;
+  }
+  .discount {
+    font-size: 12px;
+  }
+
+  .beforePrice {
+    font-size: 12px;
+  }
+  .sellerName {
+    font-size: 11px;
+  }
+
+  .productDetails {
+    font-size: 12px;
+  }
+}
