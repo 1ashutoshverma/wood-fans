@@ -33,7 +33,7 @@ const ProductDetails = () => {
   <img src={data.url2}/>
 </div>
   </div>
-  <div className={styles.description}>
+  <div className={styles.description} style={{"box-shadow":"none"}}>
   <h2>Specification:-</h2>
 <p>Modular, fully customized {data.type} with super comfortable exclusive filling and free non-fixing backrests. Use the space on the {data.type}  as you wish.</p>
 <p>The top layer of the City {data.type}  filler is made of natural goose down and feathers. This gives owners increased comfort and convenience. The backrests can be moved across the entire surface of the {data.type}  - they perfectly hold the body, do not get in the way, and do not slide off. </p>
