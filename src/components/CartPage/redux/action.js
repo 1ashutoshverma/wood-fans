@@ -22,3 +22,8 @@ export const decreaseQty = (payload) => {
     payload: payload,
   };
 };
+export const cleanCart = () => {
+  return {
+    type: "cleanCart",
+  };
+};

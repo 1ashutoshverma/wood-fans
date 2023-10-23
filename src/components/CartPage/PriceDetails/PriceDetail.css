@@ -52,8 +52,24 @@
 }
 
 .checkOutBtn {
-  padding: 15px 130px;
+  /* padding: 15px 130px; */
+  width: 330px;
+  padding: 15px;
   background-color: #f4b624;
+  /* fccd5c */
+  color: rgb(61, 60, 60);
+  font-weight: bold;
+  font-size: 16px;
+  border-style: none;
+  cursor: pointer;
+  text-wrap: nowrap;
+  border-radius: 8px;
+}
+.checkOutBtnNotValid {
+  width: 330px;
+  padding: 15px;
+  /* padding: 15px 130px; */
+  background-color: #f45524;
   /* fccd5c */
   color: rgb(61, 60, 60);
   font-weight: bold;
