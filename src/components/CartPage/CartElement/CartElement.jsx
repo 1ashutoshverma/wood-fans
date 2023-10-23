@@ -11,7 +11,7 @@ const CartElement = ({ name, seller, image, price, discount, quantity }) => {
     <div className="mainCartElement">
       <div id="cartElementContainer">
         <div>
-          <img src={image} width={150} height={150} />
+          <img src={image} width={130} height={130} style={{ borderRadius: "5px" }} />
         </div>
         <div>
           <p className="productName">{name}</p>
