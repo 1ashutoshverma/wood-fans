@@ -5,21 +5,24 @@ import styles from "./productContainer.module.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { AddToCart } from './ProductReducer/action';
 import { addToCart } from '../CartPage/redux/action';
-
+import load from "./loading.gif"
 
 const ProductContainer = () => {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   const { productType } = useSelector((store) => { return store.ProductReducer });
   console.log(productType)
 
   const fetching = async () => {
+    setLoading(true);
     try {
       const res = await axios.get(`https://crudoperations-b7d45-default-rtdb.firebaseio.com/${productType}.json`)
       const jsonData = await (res.data);
       console.log(jsonData)
       setData(jsonData);
+      setLoading(false);
     } catch (error) {
       console.log(error)
     }
@@ -30,6 +33,13 @@ const ProductContainer = () => {
   useEffect(() => {
     fetching()
   }, [productType])
+
+  if (loading) {
+    return (
+      <div className={styles.loading}><div><img src={load} alt="" /></div></div>
+    )
+  }
+
 
   return (
     <div className={styles.container}>
