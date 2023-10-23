@@ -17,6 +17,14 @@
   /* border: 1px solid red; */
 }
 
+.loading {
+  padding-top: 120px;
+  height: 65vh;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
 /* media queries */
 
 @media (max-width: 600px) {

@@ -3,8 +3,9 @@ import "./Formpage.css"; // Import the CSS for styling
 import PriceDetail from "../PriceDetails/PriceDetail";
 import useRazorpay from "react-razorpay";
 
-import logo from "../../Navbar/NavbarImages/logo.svg"
+import logo from "../../Navbar/NavbarImages/Logo.svg"
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function FormPage() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,7 @@ function FormPage() {
   }, { qty: 0, total: 0 })
   console.log(details)
   const ammount = details.total - Math.round(details.total * 24 / 100);
+  const navigate = useNavigate()
   //==========================>>>>
   const [Razorpay, isLoaded] = useRazorpay();
   const handlePayment = useCallback(() => {

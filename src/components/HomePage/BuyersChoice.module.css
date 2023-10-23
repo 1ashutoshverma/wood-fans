@@ -70,6 +70,10 @@
   padding-top: 10px;
   font-weight: 500;
   color: rgb(153, 151, 151);
+  cursor: pointer;
+}
+.cardWrapper > div > div > h4:hover {
+  color: rgb(95, 95, 95);
 }
 .cardWrapper > div > div > button {
   padding: 10px;
@@ -80,10 +84,14 @@
 .cardWrapper > div > div > button:hover {
   background-color: #e4ac29;
 }
+.cardWrapper > div {
+  height: inherit;
+}
 
-.cardWrapper img {
+.cardWrapper > div > img {
   width: 100%;
-  height: 55%;
+  height: 70%;
+  /* height: 50px; */
 }
 
 @media screen and (width<1000px) {
@@ -111,10 +119,13 @@
     font-size: 0.8rem;
   }
   .linkProvider > div:nth-child(1) > p {
-    font-size: 0.9rem;
+    font-size: 1rem;
+  }
+  .linkProvider > div:nth-child(1) > p:nth-child(4) {
+    display: none;
   }
   .linkProvider > div:nth-child(2) > h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .cardWrapper > div > h3 {
     font-size: 1rem;
@@ -122,24 +133,34 @@
   .cardWrapper {
     grid-template-columns: repeat(2, 1fr);
   }
+  .linkProvider > div:nth-child(1) {
+    gap: 10px;
+  }
+  #selectedEffect {
+    padding-bottom: 5px;
+  }
 }
-@media screen and (width<850px) {
+@media screen and (width<500px) {
   .BuyersChoice > div > h1 {
     font-size: 1.4rem;
   }
   .cardWrapper > div > p {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
   .linkProvider > div:nth-child(1) > p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .linkProvider > div:nth-child(2) > h2 {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
   .cardWrapper > div > h3 {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
-  .cardWrapper {
-    grid-template-columns: repeat(2, 1fr);
+  .cardWrapper > div > div > button {
+    padding: 5px;
+    font-size: 0.65rem;
+  }
+  .linkProvider > div:nth-child(1) {
+    gap: 10px;
   }
 }
