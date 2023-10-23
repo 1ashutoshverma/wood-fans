@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import "./PriceDetail.css";
 import { Link } from "react-router-dom";
-const PriceDetail = ({ title, onclick }) => {
+const PriceDetail = ({ title, onclick, valid = false }) => {
   const data = useSelector((store) => store.CartReducer)
   let details = data.reduce((acc, e) => {
     return { ...acc, qty: acc.qty + e.qty, total: acc.total + Number(e.price) * e.qty }
@@ -39,9 +39,9 @@ const PriceDetail = ({ title, onclick }) => {
       </div>
       <hr className="dotted-line"></hr>
       <div className="checkOutContainer">
-        <button className="checkOutBtn" onClick={() => { onclick() }}>
+        <button className={valid ? "checkOutBtnNotValid" : "checkOutBtn"} onClick={() => { onclick() }} disabled={valid} >
           {/* <Link className="checkoutLink" >{title}</Link> */}
-          {title}
+          {valid ? "Fill Your Address" : title}
         </button>
       </div>
     </div>

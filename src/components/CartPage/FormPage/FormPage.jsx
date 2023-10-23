@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 import PriceDetail from "../PriceDetails/PriceDetail";
 import useRazorpay from "react-razorpay";
 
@@ -65,6 +65,22 @@ function FormPage() {
     rzpay.open();
   }, [Razorpay]);
   //==========================>>>>
+  //form validation
+  // const [valid, setValid] = useState(true);
+  let { current: valid } = useRef(true);
+  const [firstname, setfirstName] = useState("")
+  const [lastname, setLastName] = useState("")
+  const [contactNumber, setContactNumber] = useState("")
+  const [houseNumber, setHouseNumber] = useState("")
+  const [city, setCity] = useState("")
+  const [area, setArea] = useState("")
+  const [pincode, setPincode] = useState("")
+  if (firstname != "" && lastname != "" && contactNumber.length == 10 && houseNumber != "" && city != "" && area != "" && pincode.length == 6) {
+    valid = false;
+  } else {
+    valid = true;
+  }
+  //==========================>>>>
 
   useEffect(() => {
     if (showThankYou) {
@@ -84,6 +100,11 @@ function FormPage() {
       };
     }
   }, [showThankYou, countdown, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("click")
+  }
 
   return (
     <div className="wrapperDivFormPage">
@@ -105,7 +126,7 @@ function FormPage() {
           <div>
             <div id="delivery-address">
               <div className="form">
-                <form action="">
+                <form action="" onSubmit={() => { handleSubmit }}>
                   <h4 className="color-666666">Personal Details</h4>
                   <div id="name-contact">
                     <div>
@@ -114,7 +135,7 @@ function FormPage() {
                           <span className="color-red">*&nbsp;</span>Enter first
                           name
                         </label>
-                        <input type="text" id="first-name" required />
+                        <input type="text" id="first-name" required value={firstname} onChange={(e) => { setfirstName(e.target.value) }} />
                       </div>
                     </div>
 
@@ -124,7 +145,7 @@ function FormPage() {
                           <span className="color-red">*&nbsp;</span>Enter last
                           name
                         </label>
-                        <input type="text" id="lastname" required />
+                        <input type="text" id="lastname" required value={lastname} onChange={(e) => { setLastName(e.target.value) }} />
                       </div>
                     </div>
 
@@ -134,7 +155,7 @@ function FormPage() {
                           <span className="color-red">*&nbsp;</span>Enter
                           contact number
                         </label>
-                        <input type="number" id="contact" required />
+                        <input type="number" id="contact" required value={contactNumber} onChange={(e) => { setContactNumber(e.target.value) }} />
                       </div>
                     </div>
                   </div>
@@ -144,60 +165,63 @@ function FormPage() {
                       <label htmlFor="houseNumber">
                         <span className="color-red">*&nbsp;</span>House No
                       </label>
-                      <input type="number" id="houseNumber" required />
+                      <input type="number" id="houseNumber" required value={houseNumber} onChange={(e) => { setHouseNumber(e.target.value) }} />
                     </div>
                     <div>
-                      <label htmlFor="apartment">Enter apartment name</label>
-                      <input type="text" id="apartment" required />
+                      <label htmlFor="apartment">Enter your address</label>
+                      <input type="text" id="apartment" />
                     </div>
                   </div>
 
                   <div id="Street-details">
                     <div id="street-det">
                       <label htmlFor="street">Enter street details</label>
-                      <input type="text" id="street" required />
+                      <input type="text" id="street" />
                     </div>
                     <div>
                       <label htmlFor="landmark">
                         Enter landmark for easy reach out
                       </label>
-                      <input type="text" id="landmark" required />
+                      <input type="text" id="landmark" />
                     </div>
                   </div>
 
                   <div id="city-details">
                     <div id="city-name">
-                      <label htmlFor="city">Enter city name</label>
-                      <select type="text" id="city">
+                      <label htmlFor="city">* Enter city name</label>
+                      <select type="text" id="city" value={city} onChange={(e) => { setCity(e.target.value) }}>
+                        <option value="">Select City</option>
                         <option value="delhi">Delhi</option>
                         <option value="mumbai">Mumbai</option>
-                        <option value="mumbai">Bangalore</option>
+                        <option value="banglore">Bangalore</option>
                       </select>
                     </div>
                     <div>
                       <label htmlFor="area-det">
                         <span className="color-red">*&nbsp;</span>Area details
                       </label>
-                      <select type="text" id="area-det">
-                        <option value="">Sarojni</option>
-                        <option value="">Anand Vihar</option>
+                      <select type="text" id="area-det" value={area} onChange={(e) => { setArea(e.target.value) }}>
+                        <option value="">Select Area</option>
+                        <option value="Sarojani" >Sarojni</option>
+                        <option value="Anand Vihar">Anand Vihar</option>
                       </select>
                     </div>
                     <div>
                       <label htmlFor="pincode">
                         <span className="color-red">*&nbsp;</span>Pincode
                       </label>
-                      <select type="text" id="pincode">
+                      <input type="text" id="pincode" style={{ height: "21px" }} required value={pincode} onChange={(e) => { setPincode(e.target.value) }} />
+                      {/* <select type="text" id="pincode" >
                         <option value="">21345</option>
                         <option value="248145">248145</option>
-                      </select>
+                      </select> */}
                     </div>
                   </div>
                 </form>
               </div>
 
               <div>
-                <PriceDetail onclick={handlePayment} title={"Pay Now"} />
+                <PriceDetail onclick={handlePayment} valid={valid} title={"Pay Now"} />
               </div>
             </div>
           </div>
