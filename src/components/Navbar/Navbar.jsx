@@ -167,10 +167,10 @@ const Navbar = () => {
                 clickedHumburger ? (<div className={style.main_dropdown}>
                     <div className={style.mobile_dropdown}>
                         <div>
-                            <p><Link to={"/product"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>SOFAS</Link></p>
-                            <p><Link to={"#"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>BED</Link></p>
-                            <p><Link to={"#"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>CHILDREN'S FURNITURE</Link></p>
-                            <p><Link to={"#"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>ARMCHAIRS AND POUFS</Link></p>
+                            <p onClick={() => { handleProductType("Sofas") }}><Link to={"/product"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>SOFAS</Link></p>
+                            <p onClick={() => { handleProductType("Beds") }}><Link to={"/product"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>BED</Link></p>
+                            <p onClick={() => { handleProductType("ChildrenFurniture") }}><Link to={"/product"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>CHILDREN'S FURNITURE</Link></p>
+                            <p onClick={() => { handleProductType("ArmChair") }}><Link to={"/product"} onClick={() => { setClickedHumburger(!clickedHumburger) }}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
                             <div>
