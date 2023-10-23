@@ -110,3 +110,40 @@
     width: 100%;
   }
 }
+
+@media screen and (min-width: 250px) and (max-width: 519px) {
+  #cartContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 100px;
+    padding-bottom: 25px;
+  }
+
+  #Container {
+    width: 100%;
+  }
+
+  #address {
+    margin: 0 4px;
+  }
+
+  #address h3 {
+    font-size: 12px;
+  }
+
+  .priceDetail {
+    font-size: 15px;
+  }
+
+  .priceTags p {
+    font-size: 13px;
+  }
+
+  .priceTags h4 {
+    font-size: 13px;
+  }
+  .priceTags h3 {
+    font-size: 15px;
+  }
+}

@@ -6,7 +6,10 @@ import logo from "../../Navbar/NavbarImages/Logo.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./Formpage.css";
+
+
 import { cleanCart } from "../redux/action";
+
 
 function FormPage() {
   const [countdown, setCountdown] = useState(5);
