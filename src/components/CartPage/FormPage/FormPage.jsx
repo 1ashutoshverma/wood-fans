@@ -3,13 +3,14 @@ import PriceDetail from "../PriceDetails/PriceDetail";
 import useRazorpay from "react-razorpay";
 
 import logo from "../../Navbar/NavbarImages/Logo.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./Formpage.css";
+import { cleanCart } from "../redux/action";
 
 function FormPage() {
   const [countdown, setCountdown] = useState(5);
-
+  const dispatch = useDispatch();
   //=========================>>>>
   const data = useSelector((store) => store.CartReducer);
 
@@ -67,6 +68,7 @@ function FormPage() {
 
   useEffect(() => {
     if (showThankYou) {
+      dispatch(cleanCart())
       const countdownInterval = setInterval(() => {
         setCountdown(countdown - 1);
 

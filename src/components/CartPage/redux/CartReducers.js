@@ -43,6 +43,10 @@ const CartReducer = (state = intialState, { type, payload }) => {
       });
       return map;
     }
+    case "cleanCart": {
+      return [];
+    }
+
     default:
       return state;
   }
