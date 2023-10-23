@@ -7,20 +7,24 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./FormPage.css";
 
-
-
 function FormPage() {
   const [countdown, setCountdown] = useState(5);
 
   //=========================>>>>
   const data = useSelector((store) => store.CartReducer);
 
-  let details = data.reduce((acc, e) => {
-    return { ...acc, qty: acc.qty + e.qty, total: acc.total + Number(e.price) * e.qty }
-  }, { qty: 0, total: 0 })
-  console.log(details)
-  const ammount = details.total - Math.round(details.total * 24 / 100);
-  const navigate = useNavigate()
+  let details = data.reduce(
+    (acc, e) => {
+      return {
+        ...acc,
+        qty: acc.qty + e.qty,
+        total: acc.total + Number(e.price) * e.qty,
+      };
+    },
+    { qty: 0, total: 0 }
+  );
+  console.log(details);
+  const ammount = details.total - Math.round((details.total * 24) / 100);
 
   //==========================>>>>
   const [Razorpay, isLoaded] = useRazorpay();
