@@ -31,6 +31,7 @@ const ProductDetails = () => {
             <div className={styles.leftDown}>
               <div>
 
+
                 <img src={data.url1} />
               </div>
               <div>

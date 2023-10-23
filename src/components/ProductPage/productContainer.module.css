@@ -30,6 +30,12 @@
 @media (max-width: 600px) {
   .singleCard {
     grid-template-columns: repeat(1, 1fr);
+   
+  }
+  .container{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
   }
   .mainCard > .topCover > p {
     font-size: 1.8rem;
@@ -42,6 +48,7 @@
     margin-left: -23rem;
     margin-top: -4rem;
   }
+ 
 
   /* .container{
         
@@ -52,6 +59,9 @@
 @media only screen and (max-width: 840px) and (min-width: 600px) {
   .singleCard {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .container{
+    padding: 25px;
   }
   .filterPart {
     display: none;
@@ -180,9 +190,7 @@
 }
 
 /* filter part */
-.container {
-  padding: 100px;
-}
+
 .container > .filterPart > div {
   display: flex;
   justify-content: center;
@@ -207,10 +215,17 @@
 .container > .filterPart > div .fromCountry {
   width: 180px;
 }
-
+@media only screen and (max-width: 1300px) and (min-width: 840px) {
+  .container{
+    padding: 25px;
+  }
+}
 @media (min-width: 1300px) {
   .container {
-    width: 90vw;
+    width: 85vw;
+    padding: 100px;
     /* margin: 5rem -4rem 0px 4rem ; */
   }
+}
+@media (max-width: 600px) {
 }
