@@ -70,6 +70,10 @@
   padding-top: 10px;
   font-weight: 500;
   color: rgb(153, 151, 151);
+  cursor: pointer;
+}
+.cardWrapper > div > div > h4:hover {
+  color: rgb(95, 95, 95);
 }
 .cardWrapper > div > div > button {
   padding: 10px;

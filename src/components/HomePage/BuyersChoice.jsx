@@ -55,9 +55,9 @@ const BuyersChoice = () => {
                                 <div key={e.id}>
                                     <img src={e.image} alt="" />
                                     <p> from ₹{e.price} </p>
-                                    <h3 onClick={() => { AddDetailsObj(dispatch, e.id); navigate(`/product/productdetails/${type}/${e.id}`) }}>{e.title}</h3>
+                                    <h3 >{e.title}</h3>
                                     <div>
-                                        <h4>{e.type}</h4>
+                                        <h4 onClick={() => { AddDetailsObj(dispatch, e.id); navigate(`/product/productdetails/${type}/${e.id}`) }}>Details</h4>
                                         <button onClick={() => { dispatch(addToCart([{ ...e, qty: 1 }])) }}>Buy Now</button>
                                     </div>
                                 </div>

@@ -1,7 +1,7 @@
 .wrapperDivFormPage {
   /* border: 11px solid red; */
   padding-top: 130px;
-  max-width: 1420px;
+  max-width: 1280px;
   /* margin-left: 60px; */
   margin: auto;
 }
@@ -10,15 +10,15 @@
   padding-bottom: 10px;
 }
 
-.paymentContainer {
-  width: 70%;
+/* .paymentContainer {
+  width: 60%;
   margin-left: 2%;
-}
+} */
 
 #delivery-address {
   display: grid;
   margin: auto;
-  grid-template-columns: 0.7fr 0.25fr;
+  grid-template-columns: 0.6fr 0.25fr;
   gap: 20px;
 }
 #Payment-nav {
@@ -27,7 +27,7 @@
 }
 
 #full-form {
-  width: 1170px;
+  /* width: 1170px; */
   margin: auto;
   padding-bottom: 40px;
 }
@@ -137,7 +137,7 @@ body div > form h4 span {
 
 .form {
   padding: 15px;
-  background-color: #fefcfc;
+  /* background-color: #fefcfc; */
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   /* padding-top: 145px; */
   margin-bottom: 40px;
