@@ -1,18 +1,17 @@
-#navbar_container {
+/* .navbar_container {
   position: fixed;
   width: 100%;
   background-color: white;
   z-index: 1000;
-}
-#navbar_container::before {
+} */
+/* .navbar_container::before {
   position: absolute;
   content: "";
   height: 60px;
   width: 100%;
   background-color: #f8f8f8;
-  /* background-color: #726262; */
   z-index: -1;
-}
+} */
 
 /* ------------- Navbar for Big Screen Starts Here -------------- */
 .navbar_bigscreen {
@@ -23,9 +22,9 @@
   padding: 0px 15px;
   justify-content: space-between;
 }
-#navbar_container a {
+/* .navbar_container a {
   color: #1b1b1b;
-}
+} */
 .logo_navbar {
   /* border: 1px solid red; */
   width: 10%;
@@ -280,14 +279,14 @@
   margin-top: 5px;
 }
 
-@media screen and (width<1000px) {
+@media screen and (max-width: 1000px) {
   .navbar_top div > p {
     font-size: 0.8rem;
   }
   .logo_navbar > img {
     width: 52px;
   }
-  #navbar_container::before {
+  .navbar_container::before {
     height: 60px;
   }
   .search_icon > img {
@@ -308,7 +307,7 @@
     text-wrap: nowrap;
   }
 }
-@media screen and (width>850px) {
+@media screen and (min-width: 850px) {
   .navbar_smallscreen {
     display: none;
   }
@@ -316,11 +315,11 @@
     display: none;
   }
 }
-@media screen and (width<850px) {
+@media screen and (max-width: 850px) {
   .navbar_bigscreen {
     display: none;
   }
-  #navbar_container::before {
+  .navbar_container::before {
     position: absolute;
     content: "";
     height: 75px;

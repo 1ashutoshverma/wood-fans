@@ -7,19 +7,19 @@ import ProductDetailsPage from "../pages/ProductDetailsPage";
 import FormPage from "../components/CartPage/FormPage/FormPage";
 
 const AllRoutes = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path="/login" element={<LoginAndSignUpPage />} />
-      <Route path="/address" element={<FormPage />} />
-      <Route path="/product" element={<ProductPage />} />
-      <Route
-        path="/product/productdetails/:id"
-        element={<ProductDetailsPage />}
-      />
-    </Routes>
-  );
-};
+
+    return (
+        <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/login" element={<LoginAndSignUpPage />} />
+            <Route path="/address" element={<FormPage />} />
+            <Route path="/product" element={<ProductPage />} />
+            <Route path="/product/productdetails/:type/:id" element={<ProductDetailsPage />} />
+        </Routes>
+    )
+}
+
+
 
 export default AllRoutes;

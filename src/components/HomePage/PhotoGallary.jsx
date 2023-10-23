@@ -1,6 +1,6 @@
 import React from 'react'
 import style from "./PhotoGallary.module.css"
-const Photogallary = () => {
+const PhotoGallary = () => {
     return (
         <div className={style.PhotogallaryMain}>
             <h1>Photo Gallery of our works</h1>
@@ -34,4 +34,4 @@ const Photogallary = () => {
     )
 }
 
-export default Photogallary
+export default PhotoGallary

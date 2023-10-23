@@ -4,7 +4,7 @@
   /* margin-top: 5rem; */
   padding: 120px;
 }
-.main {
+.main { 
   display: flex;
   width: 96%;
   margin: auto;
@@ -13,6 +13,7 @@
   gap: 25px;
   /* border: 2px solid gray; */
 }
+
 .main > div {
   width: 50%;
   /* border: 2px solid green; */
@@ -71,6 +72,9 @@
 @media (max-width: 600px) {
   .main {
     flex-direction: column;
+  }
+  .container {
+    padding: 0px;
   }
   .main > div {
     width: 100%;
@@ -151,4 +155,28 @@ select {
 .left div img:hover {
   scale: 1.2;
   transition: all ease 1s;
+}
+.left div img {
+  overflow: hidden;
+  transition: all ease 1s;
+}
+
+@media (max-width: 600px) {
+  .left div :nth-child(2) {
+   /* border: 2px solid black; */
+   display: none;
+  
+  }
+  .left div  {
+  padding-left: 4px;
+  padding-right: 4px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+   
+   }
+   .description{
+    box-shadow: none;
+   
+   }
+
+
 }

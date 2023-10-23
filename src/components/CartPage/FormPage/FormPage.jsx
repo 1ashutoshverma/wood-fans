@@ -2,10 +2,12 @@ import { useCallback, useState, useEffect } from "react";
 import PriceDetail from "../PriceDetails/PriceDetail";
 import useRazorpay from "react-razorpay";
 
-import logo from "../../Navbar/NavbarImages/logo.svg";
+import logo from "../../Navbar/NavbarImages/Logo.svg";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./FormPage.css";
+
+
 
 function FormPage() {
   const [countdown, setCountdown] = useState(5);
@@ -13,18 +15,13 @@ function FormPage() {
   //=========================>>>>
   const data = useSelector((store) => store.CartReducer);
 
-  let details = data.reduce(
-    (acc, e) => {
-      return {
-        ...acc,
-        qty: acc.qty + e.qty,
-        total: acc.total + Number(e.price) * e.qty,
-      };
-    },
-    { qty: 0, total: 0 }
-  );
-  console.log(details);
-  const ammount = details.total - Math.round((details.total * 24) / 100);
+  let details = data.reduce((acc, e) => {
+    return { ...acc, qty: acc.qty + e.qty, total: acc.total + Number(e.price) * e.qty }
+  }, { qty: 0, total: 0 })
+  console.log(details)
+  const ammount = details.total - Math.round(details.total * 24 / 100);
+  const navigate = useNavigate()
+
   //==========================>>>>
   const [Razorpay, isLoaded] = useRazorpay();
   const [showThankYou, setShowThankYou] = useState(false);

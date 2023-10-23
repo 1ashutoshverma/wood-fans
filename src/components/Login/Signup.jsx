@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import userIcon from './Assets/person.png';
-import emailIcon from './Assets/Email.png';
+import emailIcon from './Assets/email.png';
 import passwordIcon from './Assets/password.png';
 import google from "./Assets/google.jpg"
 import facebook from "./Assets/facebook.png"

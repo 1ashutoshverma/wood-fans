@@ -3,7 +3,6 @@ import "./PriceDetail.css";
 import { Link } from "react-router-dom";
 const PriceDetail = ({ title, onclick }) => {
   const data = useSelector((store) => store.CartReducer)
-
   let details = data.reduce((acc, e) => {
     return { ...acc, qty: acc.qty + e.qty, total: acc.total + Number(e.price) * e.qty }
   }, { qty: 0, total: 0 })
