@@ -5,7 +5,7 @@ import useRazorpay from "react-razorpay";
 import logo from "../../Navbar/NavbarImages/Logo.svg";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import "./FormPage.css";
+import "./Formpage.css";
 
 function FormPage() {
   const [countdown, setCountdown] = useState(5);
